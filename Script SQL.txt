@@ -1,0 +1,117 @@
+
+#------------------------------------------------------------
+# Table: Users
+#------------------------------------------------------------
+
+CREATE TABLE Users(
+        Id       int (11) Auto_increment  NOT NULL ,
+        nom      Varchar (255) NOT NULL ,
+        prenom   Varchar (255) NOT NULL ,
+        mail     Varchar (255) NOT NULL ,
+        autoDBE  Boolean NOT NULL ,
+        autoCESI Boolean NOT NULL ,
+        mdp      Varchar (255) NOT NULL ,
+        PRIMARY KEY (Id )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Goodies
+#------------------------------------------------------------
+
+CREATE TABLE Goodies(
+        Id         int (11) Auto_increment  NOT NULL ,
+        nom        Varchar (255) NOT NULL ,
+        categorie  Varchar (255) NOT NULL ,
+        disponible Boolean NOT NULL ,
+        Id_Users   Int NOT NULL ,
+        PRIMARY KEY (Id )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Evenement
+#------------------------------------------------------------
+
+CREATE TABLE Evenement(
+        Id           int (11) Auto_increment  NOT NULL ,
+        nom          Varchar (255) NOT NULL ,
+        dateevent    Varchar (255) ,
+        confirmation Boolean NOT NULL ,
+        description  Text NOT NULL ,
+        likeevent    Int ,
+        Id_Users     Int NOT NULL ,
+        PRIMARY KEY (Id )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Photos
+#------------------------------------------------------------
+
+CREATE TABLE Photos(
+        Id           int (11) Auto_increment  NOT NULL ,
+        chemin       Varchar (255) NOT NULL ,
+        likephoto    Int ,
+        Id_Evenement Int NOT NULL ,
+        PRIMARY KEY (Id )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Commentaires
+#------------------------------------------------------------
+
+CREATE TABLE Commentaires(
+        Id        int (11) Auto_increment  NOT NULL ,
+        textcom   Varchar (255) NOT NULL ,
+        likecom   Int ,
+        Id_Photos Int NOT NULL ,
+        PRIMARY KEY (Id )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Inscrire
+#------------------------------------------------------------
+
+CREATE TABLE Inscrire(
+        Id           Int NOT NULL ,
+        Id_Evenement Int NOT NULL ,
+        PRIMARY KEY (Id ,Id_Evenement )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Acheter
+#------------------------------------------------------------
+
+CREATE TABLE Acheter(
+        Id         Int NOT NULL ,
+        Id_Goodies Int NOT NULL ,
+        PRIMARY KEY (Id ,Id_Goodies )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Poster
+#------------------------------------------------------------
+
+CREATE TABLE Poster(
+        Id              Int NOT NULL ,
+        Id_Photos       Int NOT NULL ,
+        Id_Commentaires Int NOT NULL ,
+        PRIMARY KEY (Id ,Id_Photos ,Id_Commentaires )
+)ENGINE=InnoDB;
+
+ALTER TABLE Goodies ADD CONSTRAINT FK_Goodies_Id_Users FOREIGN KEY (Id_Users) REFERENCES Users(Id);
+ALTER TABLE Evenement ADD CONSTRAINT FK_Evenement_Id_Users FOREIGN KEY (Id_Users) REFERENCES Users(Id);
+ALTER TABLE Photos ADD CONSTRAINT FK_Photos_Id_Evenement FOREIGN KEY (Id_Evenement) REFERENCES Evenement(Id);
+ALTER TABLE Commentaires ADD CONSTRAINT FK_Commentaires_Id_Photos FOREIGN KEY (Id_Photos) REFERENCES Photos(Id);
+ALTER TABLE Inscrire ADD CONSTRAINT FK_Inscrire_Id FOREIGN KEY (Id) REFERENCES Users(Id);
+ALTER TABLE Inscrire ADD CONSTRAINT FK_Inscrire_Id_Evenement FOREIGN KEY (Id_Evenement) REFERENCES Evenement(Id);
+ALTER TABLE Acheter ADD CONSTRAINT FK_Acheter_Id FOREIGN KEY (Id) REFERENCES Users(Id);
+ALTER TABLE Acheter ADD CONSTRAINT FK_Acheter_Id_Goodies FOREIGN KEY (Id_Goodies) REFERENCES Goodies(Id);
+ALTER TABLE Poster ADD CONSTRAINT FK_Poster_Id FOREIGN KEY (Id) REFERENCES Users(Id);
+ALTER TABLE Poster ADD CONSTRAINT FK_Poster_Id_Photos FOREIGN KEY (Id_Photos) REFERENCES Photos(Id);
+ALTER TABLE Poster ADD CONSTRAINT FK_Poster_Id_Commentaires FOREIGN KEY (Id_Commentaires) REFERENCES Commentaires(Id);
