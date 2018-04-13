@@ -37,6 +37,9 @@
 			<a href="https://www.facebook.com/BDECesiLyon"><img src="../../images/facebook_logo.png"></a>
 			<a href="https://twitter.com/cesi_sudest"><img src="../../images/twitter_logo.png"></a>
 			<a href="https://www.youtube.com/watch?v=IyIDO3sI4Hw"><img src="../../images/youtube_logo.png"></a>
+			<a href="https://vimeo.com/252150044"><img src="../../images/vimeo_logo.png"></a>
+			<a href="https://fr.linkedin.com/company/groupe-cesi"><img src="../../images/linkedin_logo.png"></a>
+			<a href="https://www.cesi.fr/"><img src="../../images/cesi_logo.png"></a>
 	</section>
 
 </body>
