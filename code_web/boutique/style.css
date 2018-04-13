@@ -76,9 +76,11 @@ li{
 #left_menu{
 	width: 3%;
 	top: 50%;
-	left: 0.7%;
+	left: 0.5%;
+	padding-left: 0.5%;
 	position: fixed;
 	float: left;
+	border-style: double;
 }
 #left_menu img{
 	margin-top: 20%;
