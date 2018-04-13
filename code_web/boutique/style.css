@@ -1,0 +1,14 @@
+.main_content{
+	width: 90%;
+	padding-top: 12vh;
+	margin-left: 5%;
+}
+.title_boutique h1{
+	font-size: 1.5vw;
+	width: 100%;
+	text-align: center;
+	border-style: groove;
+	border-width: small;
+	border-radius: 75px;
+	border-color: #424558;
+}
