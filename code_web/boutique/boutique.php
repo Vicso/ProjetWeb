@@ -41,6 +41,8 @@
 			<a href="https://fr.linkedin.com/company/groupe-cesi"><img src="../../images/linkedin_logo.png"></a>
 			<a href="https://www.cesi.fr/"><img src="../../images/cesi_logo.png"></a>
 	</section>
-
+	<section>
+		
+	</section>
 </body>
 </html>
