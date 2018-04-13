@@ -3,6 +3,7 @@
 <head>
 	<title>Boutique BDE Cesi Lyon</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="../menu.css">
 	<meta charset="UTF-8">
 </head>
 <body>
@@ -40,6 +41,26 @@
 			<a href="https://vimeo.com/252150044"><img src="../../images/vimeo_logo.png"></a>
 			<a href="https://fr.linkedin.com/company/groupe-cesi"><img src="../../images/linkedin_logo.png"></a>
 			<a href="https://www.cesi.fr/"><img src="../../images/cesi_logo.png"></a>
+	</section>
+	<section class="content">
+		<section class="boutique_content">
+			<h1>Vêtements</h1>
+			<div class="boutique_display">
+				
+			</div>
+		</section>
+		<section class="boutique_content">
+			<h1>Accessoires</h1>
+			<div class="boutique_display">
+				
+			</div>
+		</section>
+		<section class="boutique_content">
+			<h1>Alcoolisme</h1>
+			<div class="boutique_display">
+				
+			</div>
+		</section>
 	</section>
 
 </body>
