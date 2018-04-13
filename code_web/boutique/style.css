@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body{
 	font-family: 'Oswald', sans-serif;
 	margin: 0px;
@@ -86,3 +87,80 @@ li{
 	margin-top: 20%;
 	max-width: 80%;
 }
+=======
+body{
+	font-family: 'Oswald', sans-serif;
+	margin: 0px;
+	padding: 0px;
+}
+nav{
+	height: 10vh;
+	width: 100%;
+	position: fixed;
+	background-color: #424558;
+	font-size: 1.5vw;
+}
+nav ul::after{
+	content: "";
+	display: block;
+	clear: both;
+}
+nav > ul{
+	margin-top: 0px;
+	padding-top: 0px;
+	display: inline-block;
+}
+nav > ul > li{
+	float: left;
+	position: relative;
+}
+nav a{
+	display: inline-block;
+	text-decoration: none;
+}
+nav > ul > li >a{
+	color: #FFF;
+	height: 100%;
+}
+nav li:hover .submenu{
+	display: inline-block;
+	padding-top: 2vh;
+	position: absolute;
+	top: 100%;
+	left: -3.5vw;
+	z-index: 1000;
+}
+.submenu{
+	display: none;
+}
+.submenu li{
+	border-bottom: 1px solid #CCC;
+}
+.submenu li a{
+	padding: 15px 30px;
+	font-size: 1.2vw;
+	color: #222538;
+	width: 6vw;
+}
+li{
+	list-style-type: none;
+}
+.nav_element{
+	list-style: none;
+	text-align: left;
+	line-height: 8vh;
+	height: 9vh;
+}
+#home_button{
+	width: 10vh;
+	margin-left: 2.9%;
+	vertical-align: top;
+}
+#home_button_img{
+	width: 100%;
+}
+.nav_element:hover{
+	border-top: 5px solid #e44d26;
+	background-color: rgba(230, 77, 38, 0.15);
+}
+>>>>>>> 8fff097ca485a2f6b429264813b05a681c5720ef
