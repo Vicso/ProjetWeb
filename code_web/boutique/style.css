@@ -73,14 +73,3 @@ li{
 	border-top: 5px solid #e44d26;
 	background-color: rgba(230, 77, 38, 0.15);
 }
-#left_menu{
-	width: 3%;
-	top: 50%;
-	left: 0.7%;
-	position: fixed;
-	float: left;
-}
-#left_menu img{
-	margin-top: 20%;
-	max-width: 80%;
-}
