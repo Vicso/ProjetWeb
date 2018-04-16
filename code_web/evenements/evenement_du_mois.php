@@ -4,8 +4,7 @@
 		<?php $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');?>
 		<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1"/>
 		<link rel="stylesheet" href="style.css" type="text/css" />
-		<link rel="stylesheet" href="boutique/style.css" type="text/css"/>
-		<link rel="php" href="liason.php" type="text/php"/>
+		<link rel="stylesheet" href="../menu.css" type="text/css" />
 		<title>Boutique BDE Cesi Lyon</title>
 	</head>
 	<body>
@@ -38,7 +37,7 @@
 		</nav>
 			
 		<Section id ="content">
-			<h2>Evénements du mois</h2>
+			<h2>Evénements du mois</h2>  
 			<div>
 				<div class="eventv">
 					<div class ="imagevent">
