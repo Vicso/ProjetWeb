@@ -4,6 +4,7 @@
 	<title>Boutique BDE Cesi Lyon</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" type="text/css" href="../menu.css">
+	<?php $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');?>
 	<meta charset="UTF-8">
 </head>
 <body>
@@ -46,24 +47,61 @@
 		<section class="boutique_content">
 			<div class="title_boutique"><h1>Vêtements</h1></div>
 			<div class="boutique_display">
-				<img src="../../images/facebook_logo.png">
-				<img src="../../images/facebook_logo.png">
-				<img src="../../images/facebook_logo.png">
-				<img src="../../images/facebook_logo.png">
-				<img src="../../images/facebook_logo.png">
-				<img src="../../images/facebook_logo.png">
+				<div class="boutique_item">
+					<?php $reponse = $bdd->query('SELECT nom FROM goodies WHERE Id=1');
+						while($donnees = $reponse->fetch())
+							{
+						 echo  '<p>'.$donnees['nom'].'</p>';
+							} 
+							$reponse->closeCursor(); ?>
+					<img src="../../images/hoodieBDE.jpg">
+				</div>
+				<div class="boutique_item">
+					<p>Premier objet</p>
+					<img src="../../images/facebook_logo.png">
+				</div>
+				<div class="boutique_item">
+					<p>Premier objet</p>
+					<img src="../../images/facebook_logo.png">
+				</div>
+				<div class="boutique_item">
+					<p>Premier objet</p>
+					<img src="../../images/facebook_logo.png">
+				</div>
+				<div class="boutique_item">
+					<p>Premier objet</p>
+					<img src="../../images/facebook_logo.png">
+				</div>
 			</div>
 		</section>
 		<section class="boutique_content">
 			<div class="title_boutique"><h1>Accessoires</h1></div>
 			<div class="boutique_display">
-				
+				<div class="boutique_item">
+					<p>Premier objet</p>
+					<img src="../../images/facebook_logo.png">
+				</div>
 			</div>
 		</section>
 		<section class="boutique_content">
 			<div class="title_boutique"><h1>Alcoolisme</h1></div>
 			<div class="boutique_display">
-				
+				<div class="boutique_item">
+					<p>Premier objet</p>
+					<img src="../../images/facebook_logo.png">
+				</div>
+				<div class="boutique_item">
+					<p>Premier objet</p>
+					<img src="../../images/facebook_logo.png">
+				</div>
+				<div class="boutique_item">
+					<p>Premier objet</p>
+					<img src="../../images/facebook_logo.png">
+				</div>
+				<div class="boutique_item">
+					<p>Premier objet</p>
+					<img src="../../images/facebook_logo.png">
+				</div>
 			</div>
 		</section>
 	</section>
