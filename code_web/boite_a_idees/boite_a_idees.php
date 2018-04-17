@@ -18,7 +18,7 @@
 			</li>
 		</ul>
 		<ul>
-			<li class="nav_element"><a href="../boite_a_idee/boite_a_idee.php">Boîte à idées</a>
+			<li class="nav_element"><a href="../boite_a_idees/boite_a_idees.php">Boîte à idées</a>
 				<ul class="submenu">
 					<li><a href="../boite_a_idees/proposer_idee.php">Proposer une idée</a></li>
 					<li><a href="../boite_a_idees/voter_idee.php">Voter pour une idée</a></li>
@@ -41,6 +41,17 @@
 			<a href="https://vimeo.com/252150044"><img src="../../images/vimeo_logo.png"></a>
 			<a href="https://fr.linkedin.com/company/groupe-cesi"><img src="../../images/linkedin_logo.png"></a>
 			<a href="https://www.cesi.fr/"><img src="../../images/cesi_logo.png"></a>
+	</section>
+	<section class="main_content">
+		<div id="content">
+			<div id="proposer_idee">
+				<a href="./proposer_idee"><p>Proposer une  nouvelle idée</br></br>Vous avez une idée de soirée à proposer ? Vous voulez que le BDE fasse une sortie pédalo, grosse beuverie ou un camping nudiste ? Et bien c'est ici que vous pouvez proposer des idées !</p></a>
+			</div>
+			<div id="voter_idee">
+				<a href="./voter_idee"><p>Voter pour une idée déjà existante</br></br>Vous voulez voir et juger les idées déjà proposé ? C'est par ici. Découvrez les idées de vos ami(e)s et choisissez les meilleurs ! Ou choisissez juste celles qui proposent des boissons de type alcoolisée...</p></a>
+			</div>
+		</div>
+		
 	</section>
 </body>
 </html>

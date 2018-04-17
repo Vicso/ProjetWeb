@@ -1,0 +1,35 @@
+.main_content{
+	width: 90%;
+	padding-top: 12vh;
+	margin-left: 5%;
+}
+#voter_idee a, #proposer_idee a{
+	text-decoration: none;
+	color: white;
+}
+#voter_idee, #proposer_idee{
+	width: 40%;
+	display: inline-block;
+	background-color: #424558;
+	color: white;
+	margin-left: 4%;
+	margin-right: 4%;
+	margin-top: 0;
+	padding-top: 0;
+}
+#voter_idee p, #proposer_idee p{
+	text-align: center;
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-top: 2vh;
+	padding-bottom: 2vh;
+	font-size: 1.6vw;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+#voter_idee:hover, #proposer_idee:hover{
+	background-color: rgb(230, 77, 38);
+}
+#content{
+	margin-top: 20vh;
+}
