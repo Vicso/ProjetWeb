@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<?php $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');?>
-		<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1"/>
-		<link rel="stylesheet" href="style.css" type="text/css" />
-		<link rel="stylesheet" href="../menu.css" type="text/css" />
-		<title>Boutique BDE Cesi Lyon</title>
-	</head>
-	<body>
-		<nav>
+<head>
+	<title>Boutique BDE Cesi Lyon</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="../menu.css">
+	<?php $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');?>
+	<meta charset="UTF-8">
+</head>
+<body>
+	<nav>
 		<a href="index.html" id="home_button"><img src="../../images/home_button.png" id="home_button_img"></a>
 		<ul>
 			<li class="nav_element"><a href="../evenements/evenement_a_venir.php">Evenements à venir</a>
@@ -43,42 +43,5 @@
 			<a href="https://fr.linkedin.com/company/groupe-cesi"><img src="../../images/linkedin_logo.png"></a>
 			<a href="https://www.cesi.fr/"><img src="../../images/cesi_logo.png"></a>
 	</section>
-			
-		<Section id ="content">
-			<h2>Evénements du mois</h2>  
-			<div>
-				<div class="eventv">
-					<div class ="imagevent">
-						<img src="../../images/beerpong.png" class ="image"/>
-					</div>
-					<button class="button">Like</button>
-					<div class="titrevent">
-						<?php $reponse = $bdd->query('SELECT nom FROM evenement WHERE Id=2');
-						while($donnees = $reponse->fetch())
-							{
-						 echo  '<p>'.$donnees['nom'].'</p>';
-							} 
-							$reponse->closeCursor(); ?> 
-					</div>
-					<div class ="datevent">
-						<?php $reponse = $bdd->query('SELECT dateevent FROM evenement WHERE Id=2');
-						while($donnees = $reponse->fetch())
-							{
-						 echo  '<p>'.$donnees['dateevent'].'</p>';
-							} 
-							$reponse->closeCursor(); ?>
-					</div>
-					<div class="descriptionevent">
-					<hr/>
-					<?php $reponse = $bdd->query('SELECT description FROM evenement WHERE Id=2');
-						while($donnees = $reponse->fetch())
-							{
-						 echo  '<p>'.$donnees['description'].'</p>';
-							} 
-							$reponse->closeCursor(); ?>
-					</div>
-				</div>
-				</div>
-			</Section>
-	</body>
+</body>
 </html>

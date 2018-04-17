@@ -47,64 +47,62 @@
 		<section class="boutique_content">
 			<div class="title_boutique"><h1>Vêtements</h1></div>
 			<div class="boutique_display">
-				<div class="boutique_item">
-					<?php $reponse = $bdd->query('SELECT nom FROM goodies WHERE Id=1');
-						while($donnees = $reponse->fetch())
+					<?php $reponse = $bdd->query('SELECT nom FROM goodies WHERE categorie="Vêtements"');
+					$donnees= $reponse->fetchall();
+					$reponse2 = $bdd->query('SELECT COUNT(*) FROM goodies WHERE categorie="Vêtements"');
+					$tabmax = $reponse2->fetch();
+					$varmax = $tabmax[0];
+					$var = 0;
+						while($var<$varmax)
 							{
-						 echo  '<p>'.$donnees['nom'].'</p>';
-							} 
+								echo  '<div class=boutique_item>
+								<p>'.$donnees[$var][0].'</p>
+								<img src="../../images/hoodieBDE.jpg">
+								</div>';
+								$var++;
+							}
 							$reponse->closeCursor(); ?>
-					<img src="../../images/hoodieBDE.jpg">
-				</div>
-				<div class="boutique_item">
-					<p>Premier objet</p>
-					<img src="../../images/facebook_logo.png">
-				</div>
-				<div class="boutique_item">
-					<p>Premier objet</p>
-					<img src="../../images/facebook_logo.png">
-				</div>
-				<div class="boutique_item">
-					<p>Premier objet</p>
-					<img src="../../images/facebook_logo.png">
-				</div>
-				<div class="boutique_item">
-					<p>Premier objet</p>
-					<img src="../../images/facebook_logo.png">
-				</div>
-			</div>
 		</section>
 		<section class="boutique_content">
 			<div class="title_boutique"><h1>Accessoires</h1></div>
 			<div class="boutique_display">
-				<div class="boutique_item">
-					<p>Premier objet</p>
-					<img src="../../images/facebook_logo.png">
-				</div>
+					<?php $reponse = $bdd->query('SELECT nom FROM goodies WHERE categorie="Accessoires"');
+					$donnees= $reponse->fetchall();
+					$reponse2 = $bdd->query('SELECT COUNT(*) FROM goodies WHERE categorie="Accessoires"');
+					$tabmax = $reponse2->fetch();
+					$varmax = $tabmax[0];
+					$var = 0;
+						while($var<$varmax)
+							{
+								echo  '<div class=boutique_item>
+								<p>'.$donnees[$var][0].'</p>
+								<img src="../../images/facebook_logo.png">
+								</div>';
+								$var++;
+							}
+							$reponse->closeCursor(); ?>
 			</div>
 		</section>
 		<section class="boutique_content">
 			<div class="title_boutique"><h1>Alcoolisme</h1></div>
 			<div class="boutique_display">
-				<div class="boutique_item">
-					<p>Premier objet</p>
-					<img src="../../images/facebook_logo.png">
-				</div>
-				<div class="boutique_item">
-					<p>Premier objet</p>
-					<img src="../../images/facebook_logo.png">
-				</div>
-				<div class="boutique_item">
-					<p>Premier objet</p>
-					<img src="../../images/facebook_logo.png">
-				</div>
-				<div class="boutique_item">
-					<p>Premier objet</p>
-					<img src="../../images/facebook_logo.png">
-				</div>
+				<?php $reponse = $bdd->query('SELECT nom FROM goodies WHERE categorie="Alcoolisme"');
+					$donnees= $reponse->fetchall();
+					$reponse2 = $bdd->query('SELECT COUNT(*) FROM goodies WHERE categorie="Alcoolisme"');
+					$tabmax = $reponse2->fetch();
+					$varmax = $tabmax[0];
+					$var = 0;
+						while($var<$varmax)
+							{
+								echo  '<div class=boutique_item>
+								<p>'.$donnees[$var][0].'</p>
+								<img src="../../images/facebook_logo.png">
+								</div>';
+								$var++;
+							}
+							$reponse->closeCursor(); ?>
 			</div>
 		</section>
 	</section>
-
 </body>
 </html>
