@@ -45,6 +45,22 @@
 	</section>
 	<section class="main_content">
 		
+		
+		<form action="cible.php" method="post" enctype="multipart/form-data">
+
+			<p>Le nom de votre idée: </p>
+			<input type="text" name="titre_idee">
+			<p>La description de votre idée: </p>
+			<textarea name="description" rows="8" cols="60"></textarea>
+			<p>La date à laquelle vous aimeriez faire votre événement (vous n'êtes pas obligé de rentrer une valeur)</p>
+			<input type="date" name="date_event">
+			<p>C'est bon ?</p>
+			<input type="submit" name="valider">
+
+		</form>
+
+
+
 	</section>
 </body>
 </html>
