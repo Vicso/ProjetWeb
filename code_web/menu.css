@@ -40,7 +40,7 @@ nav li:hover .submenu{
 .submenu{
 	display: none;
 	width: 100%;
-	padding-left: 3%;
+	padding-left: 0%;
 }
 .submenu li{
 	border-bottom: 1px solid #CCC;
@@ -49,6 +49,10 @@ nav li:hover .submenu{
 	font-size: 1.1vw;
 	color: #222538;
 	width: 6vw;
+	text-align: center;
+}
+.submenu li:hover{
+	background-color: rgb(230, 77, 38);
 }
 li{
 	list-style-type: none;

@@ -60,8 +60,7 @@
 								<img src="../../images/hoodieBDE.jpg">
 								</div>';
 								$var++;
-							}
-							$reponse->closeCursor(); ?>
+							}?>
 		</section>
 		<section class="boutique_content">
 			<div class="title_boutique"><h1>Accessoires</h1></div>

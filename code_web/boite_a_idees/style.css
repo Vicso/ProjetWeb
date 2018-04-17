@@ -33,3 +33,43 @@
 #content{
 	margin-top: 20vh;
 }
+#cible_result{
+	position: fixed;
+	top: 50%;
+	text-align: center;
+	font-size: 1.2vw;
+	left: 30%;
+}
+.idea_item{
+	width: 100%;
+	border-style: dotted;
+	margin-bottom: 2%;
+	font-size: 0.9vw;
+	padding-left: 2%;
+	padding-bottom: 2%;
+	padding-right: 2%;
+}
+.idea_title{
+	font-size: 1.2vw;
+}
+.idea_item p{
+	width: 85%;
+	height: auto;
+	display: inline-block;
+}
+.idea_item input{
+	width: 7%;
+	font-size: 100%;
+	margin-left: 7%;
+	display: inline-block;
+	background-color: #ff0000; 
+    color: white; 
+    border: 2px solid #ff0000;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.idea_item input:hover{
+	background-color: white;
+    color: black;
+}

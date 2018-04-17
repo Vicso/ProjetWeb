@@ -44,7 +44,20 @@
 			<a href="https://www.cesi.fr/"><img src="../../images/cesi_logo.png"></a>
 	</section>
 	<section class="main_content">
-		
+			<?php $reponse = $bdd->query('SELECT nom, description FROM evenement WHERE confirmation="0"');
+					$donnees= $reponse->fetchall();
+					$reponse2 = $bdd->query('SELECT COUNT(*) FROM evenement WHERE confirmation="0"');
+					$tabmax = $reponse2->fetch();
+					$varmax = $tabmax[0];
+					$var = 0;
+						while($var<$varmax)
+							{
+								echo  '<div class=idea_item>
+								<p class="idea_title">'.$donnees[$var][0].'</p>
+								<p>'.$donnees[$var][1].'</p>
+								<input type="button" value="Like"></div>';
+								$var++;
+							}?>
 	</section>
 </body>
 </html>
