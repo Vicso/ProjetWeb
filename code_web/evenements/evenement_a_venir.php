@@ -52,8 +52,8 @@
 						<img src="../../images/beerpong.png" class ="image"/>
 					</div>
 					<a href=""><button class="button">S'inscrire</button></a>
-					<div class="titrevent"><a href="events/beerpong.php"/>
-						<?php $reponse = $bdd->query('SELECT nom FROM evenement WHERE Id=2');
+					<div class="titrevent"><a href="events/rap_contenders.php"/>
+						<?php $reponse = $bdd->query('SELECT nom FROM evenement WHERE Id=1');
 						while($donnees = $reponse->fetch())
 							{
 						 echo  '<p>'.$donnees['nom'].'</p>';
@@ -62,7 +62,7 @@
 
 					</div>
 					<div class ="datevent">
-						<?php $reponse = $bdd->query('SELECT dateevent FROM evenement WHERE Id=2');
+						<?php $reponse = $bdd->query('SELECT dateevent FROM evenement WHERE Id=1');
 						while($donnees = $reponse->fetch())
 							{
 						 echo  '<p>'.$donnees['dateevent'].'</p>';
@@ -71,7 +71,7 @@
 					</div>
 					<div class="descriptionevent">
 					<hr/>
-					<?php $reponse = $bdd->query('SELECT description FROM evenement WHERE Id=2');
+					<?php $reponse = $bdd->query('SELECT description FROM evenement WHERE Id=1');
 						while($donnees = $reponse->fetch())
 							{
 						 echo  '<p>'.$donnees['description'].'</p>';
@@ -86,7 +86,7 @@
 					</div>
 					<a href=""><button class="button">S'inscrire</button></a>
 					<div class="titrevent">
-						<?php $reponse = $bdd->query('SELECT nom FROM evenement WHERE Id=1');
+						<?php $reponse = $bdd->query('SELECT nom FROM evenement WHERE Id=2');
 						while($donnees = $reponse->fetch())
 							{
 						 echo  '<p>'.$donnees['nom'].'</p>';
@@ -94,7 +94,7 @@
 							$reponse->closeCursor(); ?> 
 					</div>
 					<div class ="datevent">
-						<?php $reponse = $bdd->query('SELECT dateevent FROM evenement WHERE Id=1');
+						<?php $reponse = $bdd->query('SELECT dateevent FROM evenement WHERE Id=2');
 						while($donnees = $reponse->fetch())
 							{
 						 echo  '<p>'.$donnees['dateevent'].'</p>';
@@ -103,7 +103,7 @@
 					</div>
 					<div class="descriptionevent">
 					<hr/>
-					<?php $reponse = $bdd->query('SELECT description FROM evenement WHERE Id=1');
+					<?php $reponse = $bdd->query('SELECT description FROM evenement WHERE Id=2');
 						while($donnees = $reponse->fetch())
 							{
 						 echo  '<p>'.$donnees['description'].'</p>';
