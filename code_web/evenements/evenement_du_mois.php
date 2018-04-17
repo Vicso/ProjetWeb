@@ -51,7 +51,15 @@
 					<div class ="imagevent">
 						<img src="../../images/beerpong.png" class ="image"/>
 					</div>
-					<button class="button">Like</button>
+					<div>
+						<?php $reponse = $bdd->query('SELECT likeevent FROM evenement WHERE Id=2');
+						while($donnees = $reponse->fetch())
+							{
+						 echo  '<button class="button">'.'Like '.$donnees['likeevent'].'</button>';
+							} 
+						$reponse->closeCursor(); ?>
+					
+					</div>
 					<div class="titrevent">
 						<?php $reponse = $bdd->query('SELECT nom FROM evenement WHERE Id=2');
 						while($donnees = $reponse->fetch())

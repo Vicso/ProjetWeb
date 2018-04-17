@@ -1,0 +1,11 @@
+/* corps de la page*/
+#content{	
+	margin-left: 5%;
+	padding-top: 12vh;
+}
+
+/* titres*/ 
+h2{
+	text-align: center;
+	font-family: verdana;
+}
