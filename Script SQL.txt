@@ -1,112 +1,161 @@
 
-#------------------------------------------------------------
-#        Script MySQL.
-#------------------------------------------------------------
+--
+-- Structure de la table `acheter`
+--
+DROP TABLE IF EXISTS `acheter`;
+CREATE TABLE IF NOT EXISTS `acheter` (
+  `Id` int(11) NOT NULL,
+  `Id_Goodies` int(11) NOT NULL,
+  PRIMARY KEY (`Id`,`Id_Goodies`),
+  KEY `FK_Acheter_Id_Goodies` (`Id_Goodies`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+--
+-- Structure de la table `commentaires`
+--
+
+DROP TABLE IF EXISTS `commentaires`;
+CREATE TABLE IF NOT EXISTS `commentaires` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `textcom` varchar(255) NOT NULL,
+  `likecom` int(11) DEFAULT '0',
+  `Id_Evenement` int(11) NOT NULL,
+  `Id_Users` int(11) NOT NULL,
+  PRIMARY KEY (`Id`),
+  KEY `FK_Commentaires_Id_Evenement` (`Id_Evenement`),
+  KEY `FK_Commentaires_Id_Users` (`Id_Users`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Structure de la table `evenement`
+--
+
+DROP TABLE IF EXISTS `evenement`;
+CREATE TABLE IF NOT EXISTS `evenement` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(255) NOT NULL,
+  `dateevent` varchar(255) DEFAULT 'pas de date',
+  `confirmation` tinyint(1) DEFAULT '0',
+  `description` text NOT NULL,
+  `likeevent` int(11) DEFAULT '0',
+  `Id_Users` int(11) NOT NULL,
+  PRIMARY KEY (`Id`),
+  KEY `FK_Evenement_Id_Users` (`Id_Users`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 
-#------------------------------------------------------------
-# Table: Users
-#------------------------------------------------------------
 
-CREATE TABLE Users(
-        Id       int (11) Auto_increment  NOT NULL ,
-        nom      Varchar (255) NOT NULL ,
-        prenom   Varchar (255) NOT NULL ,
-        mail     Varchar (255) NOT NULL ,
-        autoDBE  Bool NOT NULL ,
-        autoCESI Bool NOT NULL ,
-        mdp      Varchar (255) NOT NULL ,
-        PRIMARY KEY (Id )
-)ENGINE=InnoDB;
+--
+-- Structure de la table `goodies`
+--
 
+DROP TABLE IF EXISTS `goodies`;
+CREATE TABLE IF NOT EXISTS `goodies` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(255) NOT NULL,
+  `categorie` varchar(255) NOT NULL DEFAULT 'Accessoires',
+  `disponible` tinyint(1) NOT NULL DEFAULT '1',
+  `chemin` varchar(255) DEFAULT NULL,
+  `Id_Users` int(11) NOT NULL,
+  PRIMARY KEY (`Id`),
+  KEY `FK_Goodies_Id_Users` (`Id_Users`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-#------------------------------------------------------------
-# Table: Goodies
-#------------------------------------------------------------
+--
+-- Structure de la table `inscrire`
+--
 
-CREATE TABLE Goodies(
-        Id         int (11) Auto_increment  NOT NULL ,
-        nom        Varchar (255) NOT NULL ,
-        categorie  Varchar (255) NOT NULL ,
-        disponible Bool NOT NULL ,
-        chemin     Varchar (255) ,
-        Id_Users   Int NOT NULL ,
-        PRIMARY KEY (Id )
-)ENGINE=InnoDB;
-
-
-#------------------------------------------------------------
-# Table: Evenement
-#------------------------------------------------------------
-
-CREATE TABLE Evenement(
-        Id           int (11) Auto_increment  NOT NULL ,
-        nom          Varchar (255) NOT NULL ,
-        dateevent    Varchar (255) ,
-        confirmation Bool NOT NULL ,
-        description  Text NOT NULL ,
-        likeevent    Int ,
-        Id_Users     Int NOT NULL ,
-        PRIMARY KEY (Id )
-)ENGINE=InnoDB;
+DROP TABLE IF EXISTS `inscrire`;
+CREATE TABLE IF NOT EXISTS `inscrire` (
+  `Id` int(11) NOT NULL,
+  `Id_Evenement` int(11) NOT NULL,
+  PRIMARY KEY (`Id`,`Id_Evenement`),
+  KEY `FK_Inscrire_Id_Evenement` (`Id_Evenement`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
-#------------------------------------------------------------
-# Table: Photos
-#------------------------------------------------------------
-
-CREATE TABLE Photos(
-        Id           int (11) Auto_increment  NOT NULL ,
-        chemin       Varchar (255) NOT NULL ,
-        likephoto    Int ,
-        Id_Users     Int NOT NULL ,
-        Id_Evenement Int NOT NULL ,
-        PRIMARY KEY (Id )
-)ENGINE=InnoDB;
 
 
-#------------------------------------------------------------
-# Table: Commentaires
-#------------------------------------------------------------
-
-CREATE TABLE Commentaires(
-        Id           int (11) Auto_increment  NOT NULL ,
-        textcom      Varchar (255) NOT NULL ,
-        likecom      Int ,
-        Id_Evenement Int NOT NULL ,
-        Id_Users     Int NOT NULL ,
-        PRIMARY KEY (Id )
-)ENGINE=InnoDB;
 
 
-#------------------------------------------------------------
-# Table: Inscrire
-#------------------------------------------------------------
-
-CREATE TABLE Inscrire(
-        Id           Int NOT NULL ,
-        Id_Evenement Int NOT NULL ,
-        PRIMARY KEY (Id ,Id_Evenement )
-)ENGINE=InnoDB;
 
 
-#------------------------------------------------------------
-# Table: Acheter
-#------------------------------------------------------------
+--
+-- Structure de la table `photos`
+--
 
-CREATE TABLE Acheter(
-        Id         Int NOT NULL ,
-        Id_Goodies Int NOT NULL ,
-        PRIMARY KEY (Id ,Id_Goodies )
-)ENGINE=InnoDB;
+DROP TABLE IF EXISTS `photos`;
+CREATE TABLE IF NOT EXISTS `photos` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `chemin` varchar(255) NOT NULL,
+  `likephoto` int(11) DEFAULT '0',
+  `Id_Users` int(11) NOT NULL,
+  `Id_Evenement` int(11) NOT NULL,
+  PRIMARY KEY (`Id`),
+  KEY `FK_Photos_Id_Users` (`Id_Users`),
+  KEY `FK_Photos_Id_Evenement` (`Id_Evenement`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-ALTER TABLE Goodies ADD CONSTRAINT FK_Goodies_Id_Users FOREIGN KEY (Id_Users) REFERENCES Users(Id);
-ALTER TABLE Evenement ADD CONSTRAINT FK_Evenement_Id_Users FOREIGN KEY (Id_Users) REFERENCES Users(Id);
-ALTER TABLE Photos ADD CONSTRAINT FK_Photos_Id_Users FOREIGN KEY (Id_Users) REFERENCES Users(Id);
-ALTER TABLE Photos ADD CONSTRAINT FK_Photos_Id_Evenement FOREIGN KEY (Id_Evenement) REFERENCES Evenement(Id);
-ALTER TABLE Commentaires ADD CONSTRAINT FK_Commentaires_Id_Evenement FOREIGN KEY (Id_Evenement) REFERENCES Evenement(Id);
-ALTER TABLE Commentaires ADD CONSTRAINT FK_Commentaires_Id_Users FOREIGN KEY (Id_Users) REFERENCES Users(Id);
-ALTER TABLE Inscrire ADD CONSTRAINT FK_Inscrire_Id FOREIGN KEY (Id) REFERENCES Users(Id);
-ALTER TABLE Inscrire ADD CONSTRAINT FK_Inscrire_Id_Evenement FOREIGN KEY (Id_Evenement) REFERENCES Evenement(Id);
-ALTER TABLE Acheter ADD CONSTRAINT FK_Acheter_Id FOREIGN KEY (Id) REFERENCES Users(Id);
-ALTER TABLE Acheter ADD CONSTRAINT FK_Acheter_Id_Goodies FOREIGN KEY (Id_Goodies) REFERENCES Goodies(Id);
+--
+-- Structure de la table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(255) NOT NULL,
+  `prenom` varchar(255) NOT NULL,
+  `mail` varchar(255) NOT NULL,
+  `autoDBE` tinyint(1) NOT NULL DEFAULT '0',
+  `autoCESI` tinyint(1) NOT NULL DEFAULT '0',
+  `mdp` varchar(255) NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+
+
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `acheter`
+--
+ALTER TABLE `acheter`
+  ADD CONSTRAINT `FK_Acheter_Id` FOREIGN KEY (`Id`) REFERENCES `users` (`Id`),
+  ADD CONSTRAINT `FK_Acheter_Id_Goodies` FOREIGN KEY (`Id_Goodies`) REFERENCES `goodies` (`Id`);
+
+--
+-- Contraintes pour la table `commentaires`
+--
+ALTER TABLE `commentaires`
+  ADD CONSTRAINT `FK_Commentaires_Id_Evenement` FOREIGN KEY (`Id_Evenement`) REFERENCES `evenement` (`Id`),
+  ADD CONSTRAINT `FK_Commentaires_Id_Users` FOREIGN KEY (`Id_Users`) REFERENCES `users` (`Id`);
+
+--
+-- Contraintes pour la table `evenement`
+--
+ALTER TABLE `evenement`
+  ADD CONSTRAINT `FK_Evenement_Id_Users` FOREIGN KEY (`Id_Users`) REFERENCES `users` (`Id`);
+
+--
+-- Contraintes pour la table `goodies`
+--
+ALTER TABLE `goodies`
+  ADD CONSTRAINT `FK_Goodies_Id_Users` FOREIGN KEY (`Id_Users`) REFERENCES `users` (`Id`);
+
+
+--
+-- Contraintes pour la table `inscrire`
+--
+ALTER TABLE `inscrire`
+  ADD CONSTRAINT `FK_Inscrire_Id` FOREIGN KEY (`Id`) REFERENCES `users` (`Id`),
+  ADD CONSTRAINT `FK_Inscrire_Id_Evenement` FOREIGN KEY (`Id_Evenement`) REFERENCES `evenement` (`Id`);
+
+--
+-- Contraintes pour la table `photos`
+--
+ALTER TABLE `photos`
+  ADD CONSTRAINT `FK_Photos_Id_Evenement` FOREIGN KEY (`Id_Evenement`) REFERENCES `evenement` (`Id`),
+  ADD CONSTRAINT `FK_Photos_Id_Users` FOREIGN KEY (`Id_Users`) REFERENCES `users` (`Id`);
+COMMIT;
