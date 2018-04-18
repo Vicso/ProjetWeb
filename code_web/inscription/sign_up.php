@@ -8,8 +8,8 @@ include("Connect.php");
 <html>
 	<head>
 		<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1"/>
+		<link rel="stylesheet" href="../menu.css" type="text/css" />
         <link rel="stylesheet" href="../inscription/style.css" type="text/css"/>
-        <link rel="stylesheet" href="../menu.css" type="text/css"/>
 		<title>Inscription BDE Cesi Lyon</title>
 	</head>
 	<body>
@@ -86,8 +86,9 @@ include("Connect.php");
                     $query->bindValue(':mdp', $mdp, PDO::PARAM_STR);
                     $query->execute();
                     $query->CloseCursor();
-
+                    
                     echo "<script> alert(\"Votre compte a bien été créer\");</script>";
+                    echo "<script>setTimeout(\"location.href = 'sign_in.php';\",1000);</script>";
                 }
             }
             else{ echo "<script> alert(\"Votre mot de passe n\'est pas valide, il doit contenir une majuscule et un chifre\");</script>"; }
