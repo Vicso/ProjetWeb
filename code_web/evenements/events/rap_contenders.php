@@ -45,62 +45,51 @@
 	</section>
 			
 		<Section id ="content">
-			<div class="titreevent">
-				<?php $reponse = $bdd->query('SELECT nom FROM evenement WHERE Id=1');
-						while($donnees = $reponse->fetch())
+			<?php $reponse = $bdd->query('SELECT nom, description, dateevent FROM evenement WHERE id="1" and confirmation="1"');
+					$donnees= $reponse->fetchall();
+					$reponse2 = $bdd->query('SELECT COUNT(*) FROM evenement WHERE id="1" and confirmation="1"');
+					$tabmax = $reponse2->fetch();
+					$varmax = $tabmax[0];
+					$var = 0;
+						while($var<$varmax)
 							{
-						 echo  '<h2>'.$donnees['nom'].'</h2>';
-							} 
-							$reponse->closeCursor(); ?>
-			</div>
-			<div class="imageevent">
-				<img src="../../../images/beerpong.png" class ="image"/>
-			</div>
-				<div class="dateevent">
-				<?php $reponse = $bdd->query('SELECT dateevent FROM evenement WHERE Id=1');
-						while($donnees = $reponse->fetch())
-							{
-						 echo  '<p>'.$donnees['dateevent'].'</p>';
-							} 
-							$reponse->closeCursor(); ?>
-			</div>
-			<div class="descriptionevent">
-				<?php $reponse = $bdd->query('SELECT description FROM evenement WHERE Id=1');
-						while($donnees = $reponse->fetch())
-							{
-						 echo  '<p>'.$donnees['description'].'</p>';
-							} 
-							$reponse->closeCursor(); ?>
-			</div>
+								echo  
+									'<div class="event">
+									<div class="titrevent"><h2>'.$donnees[$var][0].'</h2></div>
+									<div class="imagevent"><img src="../../../images/beerpong.png" class="image"></div>
+									<div class="datevent">'.$donnees[$var][2].'</div>
+									<div class="descriptionevent">'.$donnees[$var][1].'</div>
+									</div>';
+								$var++;
+							}?>
+		
+		
 			<h2> Commentaires </h2>
-			<div class="commentaire">
-				<div class ="imgcom">
-					<img src="">
-				</div>
-				<div>
-						<?php $reponse = $bdd->query('SELECT likecom FROM commentaires WHERE id=1');
-							while($donnees= $reponse->fetch())
+				<?php $reponse = $bdd->query('SELECT nom, likecom, textcom FROM users INNER JOIN commentaires ON users.Id = commentaires.Id_Users');
+					$donnees= $reponse->fetchall();
+					$reponse2 = $bdd->query('SELECT COUNT(*) FROM commentaires WHERE id_evenement="1"');
+					$tabmax = $reponse2->fetch();
+					$varmax = $tabmax[0];
+					$var = 0;
+						while($var<$varmax)
 							{
-								echo '<button class="button">'.'Like '.$donnees['likecom'].'</button>';
-							}
-							$reponse->closeCursor(); ?>
-				<div class="username">
-					<?php $reponse = $bdd->query('SELECT nom FROM users WHERE Id=1');
-						while($donnees = $reponse->fetch())
-							{
-						 echo  '<h3>'.$donnees['nom'].'</h3>';
-							} 
-							$reponse->closeCursor(); ?>
+								echo  
+									'<div class="com">
+									<div class="imageusers"><img src="../../../images/beerpong.png" class="image"></div>
+									<div class=nomusers><h3>'.$donnees[$var][0].'</h3></div>
+									<div class="textcom">'.$donnees[$var][2].'</div>
+									<div class=likecom>'.$donnees[$var][1].'</div>
+									</div>';
+								$var++;
+							}?>
+				<div class="combar">
+				<form action="cible.php" method="post" enctype="multipart/form-data">
+					<input class="champ" type="text" value="Tapez votre commentaire ici ... " name="com">
+					<input type="submit" name="Envoyer">
+
+				</form>
 				</div>
-				<div class="usercom">
-					<?php $reponse = $bdd->query('SELECT textcom FROM commentaires WHERE Id=1');
-						while($donnees = $reponse->fetch())
-							{
-						 echo  '<p>'.$donnees['textcom'].'</p>';
-							} 
-							$reponse->closeCursor(); ?>
-				</div>
-				<h2> Photos </h2>
+			<h2> Photos </h2>
 				<div class="postimg">
 					<img src="">
 				</div>

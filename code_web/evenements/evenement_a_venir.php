@@ -45,6 +45,7 @@
 	</section>
 			
 		<section id ="content">
+			<h2> Evenements à venir </h2>
 					<?php $reponse = $bdd->query('SELECT nom, description, dateevent FROM evenement WHERE confirmation="1"');
 					$donnees= $reponse->fetchall();
 					$reponse2 = $bdd->query('SELECT COUNT(*) FROM evenement WHERE confirmation="1"');
@@ -54,10 +55,11 @@
 						while($var<$varmax)
 							{
 								echo  '<div class="eventv">
-									<div class="imageevent"><img src="../../images/beerpong.png" class="image"></div>
-									<div class=titrevent>'.$donnees[$var][0].'</div>
-									<div class="dateevent">'.$donnees[$var][2].'</div>
-									<div class=descriptionevent>'.$donnees[$var][1].'</div>
+									<div class="imagevent"><img src="../../images/beerpong.png" class="image"></div>
+									<button class="button">S\'inscrire</button>
+									<div class="titrevent"><p>'.$donnees[$var][0].'</p></div>
+									<div class="datevent"><p>'.$donnees[$var][2].'</p></div>
+									<div class="descriptionevent"><hr><p>'.$donnees[$var][1].'</p></div>
 								</div>';
 								$var++;
 							}?>

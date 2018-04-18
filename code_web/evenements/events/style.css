@@ -7,5 +7,43 @@
 /* titres*/ 
 h2{
 	text-align: center;
-	font-family: verdana;
+	padding-top: 1%;
+}
+/* partie evenement*/ 
+.imagevent{
+	
+}
+
+.datevent{
+	font-size:25px;
+	float: left;
+	margin-left: 25%;
+	margin-top : -20%;
+}
+
+.descriptionevent{
+	font-size:20px;
+	float:left;
+	margin-left: 25%;
+	margin-top : -15%;
+
+}
+
+/* partie commentaires */
+
+.imageusers{
+
+}
+
+.nomusers{
+
+
+}
+
+.textcom{
+
+}
+
+.likecom{
+
 }

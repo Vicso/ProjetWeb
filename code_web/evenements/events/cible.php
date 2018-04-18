@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<?php $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');?>
-		<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1"/>
-		<link rel="stylesheet" href="style.css" type="text/css" />
-		<link rel="stylesheet" href="../menu.css" type="text/css" />
-		<title>Boutique BDE Cesi Lyon</title>
-	</head>
-	<body>
-		<nav>
+<head>
+	<title>Boutique BDE Cesi Lyon</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="../menu.css">
+	<?php $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');?>
+	<meta charset="UTF-8">
+</head>
+<body>
+	<nav>
 		<a href="index.html" id="home_button"><img src="../../images/home_button.png" id="home_button_img"></a>
 		<ul>
 			<li class="nav_element"><a href="../evenements/evenement_a_venir.php">Evenements à venir</a>
@@ -43,26 +43,17 @@
 			<a href="https://fr.linkedin.com/company/groupe-cesi"><img src="../../images/linkedin_logo.png"></a>
 			<a href="https://www.cesi.fr/"><img src="../../images/cesi_logo.png"></a>
 	</section>
-			
-		<section id ="content">
-			<h2> Evenements du mois </h2>
-					<?php $reponse = $bdd->query('SELECT nom, description, dateevent, likeevent FROM evenement WHERE confirmation="1"');
-					$donnees= $reponse->fetchall();
-					$reponse2 = $bdd->query('SELECT COUNT(*) FROM evenement WHERE confirmation="1"');
-					$tabmax = $reponse2->fetch();
-					$varmax = $tabmax[0];
-					$var = 0;
-						while($var<$varmax)
-							{
-								echo '<a href="events/rap_contenders"/><div class="eventv">
-									<div class="imagevent"><img src="../../images/beerpong.png" class="image"></div>
-									<button class="button">Like '.$donnees[$var][3].'</button>
-									<div class="titrevent"><p>'.$donnees[$var][0].'</p></div>
-									<div class="datevent"><p>'.$donnees[$var][2].'</p></div>
-									<div class="descriptionevent"><hr><p>'.$donnees[$var][1].'</p></div>
-								</div>';
-								$var++;
-							}?>
-			</section>  	
-	</body>
+	<section class="main_content">
+		<?php 
+		$titre_idee=$_POST['com'];
+		$description=$_POST['Envoyer'];
+		$bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');
+		$requete1 = $bdd->prepare('INSERT INTO commentaire (textcom, ID_Evenement, Id_Users) VALUES (:com, :Envoyer, :description, 1)');
+		$requete1->bindValue(':com', $titre_idee, PDO::PARAM_STR);
+		$requete1->bindValue(':Envoyer', $date_event, PDO::PARAM_STR);
+		$requete1->execute();
+		?>
+		<p id="cible_result">Votre idée à bien été enregistré, vous pouvez aller la consulter dans l'onglet "Voter pour une idée"</p>
+	</section>
+</body>
 </html>
