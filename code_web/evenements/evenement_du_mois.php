@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php session_start();?>
 <html>
 	<head>
 		<?php $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');?>
