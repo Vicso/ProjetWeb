@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<?php session_start();?>
+<?php session_start();?> <!--  session de connexion utilisateur -->
 <html>
 	<head>
-		<?php $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');?>
+		<?php $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');?> <!-- liaison à la BDD -->
 		<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1"/>
-		<link rel="stylesheet" href="style.css" type="text/css" />
-		<link rel="stylesheet" href="../menu.css" type="text/css" />
+		<link rel="stylesheet" href="style.css" type="text/css" /> <!--  lien vers le fichier css de la page-->
+		<link rel="stylesheet" href="../menu.css" type="text/css" /> <!-- lien vers le fichier css de la barre de navigation -->
 		<title>Boutique BDE Cesi Lyon</title>
 	</head>
 	<body>
 		<nav>
-		<a href="index.html" id="home_button"><img src="../../images/home_button.png" id="home_button_img"></a>
+		<a href="index.html" id="home_button"><img src="../../images/home_button.png" id="home_button_img"></a> <!-- image avec un lien -->
 		<ul>
-			<li class="nav_element"><a href="../evenements/evenement_a_venir.php">Evenements à venir</a>
+			<li class="nav_element"><a href="../evenements/evenement_a_venir.php">Evenements à venir</a> <!-- création d'une liste avec un lien-->
 			</li>
 		</ul>
 		<ul>
@@ -44,17 +44,18 @@
 			<a href="https://fr.linkedin.com/company/groupe-cesi"><img src="../../images/linkedin_logo.png"></a>
 			<a href="https://www.cesi.fr/"><img src="../../images/cesi_logo.png"></a>
 	</section>
-			
+		<!-- corps de la page -->	
 		<section id ="content">
-			<h2> Evenements du mois </h2>
-					<?php $reponse = $bdd->query('SELECT nom, description, dateevent, likeevent FROM evenement WHERE confirmation="1"');
-					$donnees= $reponse->fetchall();
+			<h2> Evenements du mois </h2> <!-- titre -->
+					<?php $reponse = $bdd->query('SELECT nom, description, dateevent, likeevent FROM evenement WHERE confirmation="1"'); //requete vers la BDD sur la table event
+					$donnees= $reponse->fetchall(); // variable donnee prends la valeur de la reponse de la requête
 					$reponse2 = $bdd->query('SELECT COUNT(*) FROM evenement WHERE confirmation="1"');
 					$tabmax = $reponse2->fetch();
-					$varmax = $tabmax[0];
-					$var = 0;
-						while($var<$varmax)
+					$varmax = $tabmax[0]; // definition dun tableau
+					$var = 0; //initialisatin d'une variable a 0 
+						while($var<$varmax) // ouverture d'une boucle while
 							{
+								// affichage des valeurs récupérée dans la requête
 								echo '<a href="events/rap_contenders"/><div class="eventv">
 									<div class="imagevent"><img src="../../images/beerpong.png" class="image"></div>
 									<button class="button">Like '.$donnees[$var][3].'</button>

@@ -1,54 +1,54 @@
 /* corps de la page*/
 #content{	
-	margin-left: 5%;
-	padding-top: 12vh;
+	margin-left: 5%;  /* créer une marge de 5%  a gauche entre le bord de la page/section et le div*/
+	padding-top: 12vh; 
 }
 /* titres*/ 
 h2{
-	text-align: center;
+	text-align: center;  /* aligne le texte au centre*/
 }
 /* Evenements a venir*/ 
 .eventv{
-	width: auto;
-	min-height: 320px;
-	border-style: solid ;
-	border-radius: 4px;
-	margin-left: 8%;
-	margin-bottom: 5%;
+	width: auto; /* genere la largeur automatiquement en focntion du contenu*/
+	min-height: 320px; /*initialise une hauteur minimum*/
+	border-style: solid ; /*style de la bordure du cadre */
+	border-radius: 4px; /*epaisseur de la bordure*/ 
+	margin-left: 8%; 
+	margin-bottom: 5%; 
 	margin-right:5%;
 
   }
 
   /*parametre boutons*/
 .button{
-	background-color: #ff0000;
-    color: white;
-    border: none;
-    padding: 15px 32px;
+	background-color: #ff0000; /*couleu de l'arriere plan du bouton , couleur rouge */
+    color: white; 
+    border: none; /* enleve les bordures */ 
+    padding: 15px 32px; /* creer une marge entre les bords d'un div et l'objet*/
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    float:right;
+    text-decoration: none; 
+    display: inline-block; /*se comporte comme un block et un inline */
+    font-size: 16px; /* taille de la police */
+    float:right; 
     margin-top: 1%;
     margin-right: 1%;
     border-radius: 4px;
-    -webkit-transition-duration: 0.4s; 
+    -webkit-transition-duration: 0.4s;  /*temps de l'animation au passage de la souris*/
     transition-duration: 0.4s;
     cursor: pointer;
   }
 .button {
     background-color: #ff0000; 
-    color: white; 
+    color: white; /* couleur du texte dans le bouton */
     border: 2px solid #ff0000;
 }
 .button:hover {
-    background-color: white;
-    color: black;
+    background-color: white; /*couleur du background quand la souris passe */
+    color: black; /*couleur du texte au passage de la souris */
   }
- /*gestion placement div dans page*/
 
-.imagevent{
+ /*gestion placement div dans page*/
+.imagevent{                 
 	float:left;
 	margin-top: 1%;
 	margin-left: 1%;

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<?php session_start();?>
+<?php session_start();?> <!-- creation de la session utilisateur -->
 <html>
 <head>
 	<title>Boutique BDE Cesi Lyon</title>
 	<link rel="stylesheet" type="text/css" href="rap_contenders.php">
 	<link rel="stylesheet" href="style.css" type="text/css" />
 		<link rel="stylesheet" href="../../menu.css" type="text/css" />
-	<?php $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');?>
+	<?php $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');?> <!-- liaison a la BDD-->
 	<meta charset="UTF-8">
 </head>
 <body>
@@ -48,11 +48,10 @@
 			
 	<section class="main_content">
 		<?php 
-		$id_user=$_SESSION['id'];
-		$text_com=$_POST['com'];
-		$bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');
-		$requete1 = $bdd->prepare('INSERT INTO commentaire (textcom, ID_Evenement, Id_Users) VALUES (:com, :val, :id_users)');
-		$requete1->bindValue(':com', $text_com, PDO::PARAM_STR);
+		$id_user=$_SESSION['id']; // recuperation de l'id de l'utilisateur
+		$text_com=$_POST['com']; // la variable text_com prends la valeur du champ 'com'
+		$requete1 = $bdd->prepare('INSERT INTO commentaire (textcom, ID_Evenement, Id_Users) VALUES (:com, :val, :id_users)'); // requete vers la BDD pour stocker le commentaire
+		$requete1->bindValue(':com', $text_com, PDO::PARAM_STR); //biding des variables
 		$requete1->bindValue(':val', $event, PDO::PARAM_STR);
 		$requete1->bindValue(':id_user', $id_user, PDO::PARAM_STR);
 		$requete1->execute();
