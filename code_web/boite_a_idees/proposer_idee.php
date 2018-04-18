@@ -8,7 +8,7 @@
 	<meta charset="UTF-8">
 </head>
 <body>
-	<nav>
+	<nav> <!-- CF voter_idee.php -->
 		<a href="index.html" id="home_button"><img src="../../images/home_button.png" id="home_button_img"></a>
 		<ul>
 			<li class="nav_element"><a href="../evenements/evenement_a_venir.php">Evenements à venir</a>
@@ -45,16 +45,16 @@
 	</section>
 	<section class="main_content">	
 		
-		<form action="cible.php" method="post" enctype="multipart/form-data">
+		<form action="cible.php" method="post" enctype="multipart/form-data"> <!-- Ici on crée le formulaire qui permet de proposer des idées -->
 
 			<p>Le nom de votre idée: </p>
-			<input type="text" name="titre_idee">
+			<input type="text" name="titre_idee"> <!-- Ici on récupère le titre -->
 			<p>La description de votre idée: </p>
-			<textarea name="description" rows="8" cols="60"></textarea>
+			<textarea name="description" rows="8" cols="60"></textarea> <!-- On prend un textarea pour la description car elle peut être très longue -->
 			<p>La date à laquelle vous aimeriez faire votre événement (vous n'êtes pas obligé de rentrer une valeur)</p>
-			<input type="date" name="date_event">
+			<input type="date" name="date_event"> <!-- Ici on récupère la date -->
 			<p>C'est bon ?</p>
-			<input type="submit" name="valider">
+			<input type="submit" name="valider"> <!-- Bouton validation -->
 
 		</form>
 
