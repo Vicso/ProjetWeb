@@ -126,7 +126,7 @@ else
                             </div>	
                         </div>
                     </div>
-                    <script>setTimeout("location.href = \'Accueil.php\';",2000);</script>;
+                    <script>setTimeout("location.href = \'../Accueil/accueil.php\';",2000);</script>;
                 </Section>
             </body>
         </html>'; }
