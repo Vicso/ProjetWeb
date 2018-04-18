@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php session_start(); ?>
+<?php $event = 1 ; ?>
+
+
 <html>
 	<head>
 		<?php $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');?>
@@ -45,12 +49,18 @@
 	</section>
 			
 		<Section id ="content">
-			<?php $reponse = $bdd->query('SELECT nom, description, dateevent FROM evenement WHERE id="1" and confirmation="1"');
+			<?php 	  
+					$reponse = $bdd->prepare('SELECT nom, description, dateevent FROM evenement WHERE id=:val and confirmation=:val');
+					$reponse->bindValue(':val', $event, PDO::PARAM_STR);
+					$reponse->execute();
 					$donnees= $reponse->fetchall();
-					$reponse2 = $bdd->query('SELECT COUNT(*) FROM evenement WHERE id="1" and confirmation="1"');
+					$reponse2 = $bdd->prepare('SELECT COUNT(*) FROM evenement WHERE id=:val and confirmation=:val');
+					$reponse2->bindValue(':val', $event, PDO::PARAM_STR);
+					$reponse2->execute();
 					$tabmax = $reponse2->fetch();
 					$varmax = $tabmax[0];
 					$var = 0;
+					
 						while($var<$varmax)
 							{
 								echo  
@@ -67,7 +77,9 @@
 			<h2> Commentaires </h2>
 				<?php $reponse = $bdd->query('SELECT nom, likecom, textcom FROM users INNER JOIN commentaires ON users.Id = commentaires.Id_Users');
 					$donnees= $reponse->fetchall();
-					$reponse2 = $bdd->query('SELECT COUNT(*) FROM commentaires WHERE id_evenement="1"');
+					$reponse2 = $bdd->prepare('SELECT COUNT(*) FROM commentaires WHERE id_evenement=:val');
+					$reponse2->bindValue(':val', $event, PDO::PARAM_STR);
+					$reponse2->execute();
 					$tabmax = $reponse2->fetch();
 					$varmax = $tabmax[0];
 					$var = 0;

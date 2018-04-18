@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php session_start();?>
 <html>
 <head>
 	<title>Boutique BDE Cesi Lyon</title>
