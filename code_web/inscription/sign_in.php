@@ -4,7 +4,7 @@
 session_start();
 include("Connect.php"); 
 
-if(!isset($_POST['mail'],$_POST['mdp'])){
+if(!isset($_POST['mail'],$_POST['mdp'])){ /*Si le formulaire na pas été remplie on attend qu'il le soit*/
 echo '<html>
         <head>
             <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1"/>
@@ -44,7 +44,7 @@ echo '<html>
             </Section>
         </body>
     </html>';}
-else
+else /* Sinon on vérifie les données du formulaire*/
 {
     $mail=$_POST['mail'];
     $mdp=$_POST['mdp'];        
@@ -54,7 +54,7 @@ else
     $query->execute();
     $donnees = $query->fetch();
     
-    if(!$donnees['id'])
+    if(!$donnees['id']) /* Si les données ne sont pas bonne on lui dit et on attend qu'il remplisse de nouveau le formulaire*/
     {
         echo '<html>
             <head>
@@ -68,7 +68,7 @@ else
                             <div class="contact-form1">
                                 <div class="contact-w3-agileits">
                                         <h3>Connexion</h3>
-                                        <form action="#" method="post">
+                                        <form action="#" method="post"> 
                                             <div class="form-sub-w3ls">
                                                 <input placeholder="email" class="mail" type="email" name="mail" required="">
                                                 <div class="icon-agile">
@@ -93,7 +93,7 @@ else
                 <script> alert("Email ou mot de passe non valide")</script>
             </body>
         </html>';}   
-    else
+    else /* Si les données sont bonnes on connecte la personne*/
     {
     $_SESSION['id']=$donnees['id'];
     $query->CloseCursor();

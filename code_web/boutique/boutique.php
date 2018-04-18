@@ -44,9 +44,10 @@
 			<a href="https://www.cesi.fr/"><img src="../../images/cesi_logo.png"></a>
 	</section>
 	<section class="main_content">
-		<section class="boutique_content"> <!-- Contient la partie boutique Vêtements -->
+		<form action="panier.php" method="post" enctype="multipart/form-data">
+			<section class="boutique_content"> <!-- Contient la partie boutique Vêtements -->
 			<div class="title_boutique"><h1>Vêtements</h1></div> <!-- Contient la partie titre de Vêtements -->
-			<div class="boutique_display">
+				<div class="boutique_display"> <!-- Contient la partie où les goodies sont disposées-->
 					<?php $reponse = $bdd->query('SELECT nom FROM goodies WHERE categorie="Vêtements"'); //On récupère le nom de nos articles
 					$donnees= $reponse->fetchall();
 					$reponse2 = $bdd->query('SELECT COUNT(*) FROM goodies WHERE categorie="Vêtements"'); //On compte le nombre de lignes/articles
@@ -58,51 +59,76 @@
 								echo  '<div class=boutique_item>
 								<p>'.$donnees[$var][0].'</p>
 								<img src="../../images/hoodieBDE.jpg">
+								<select name="number_item_vetements'.$var.'" class="input_number">
+									<option value="0">0</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+								</select>
 								</div>';
 								$var++; //On affiche le nom de notre article
 								//Normalement on aurait pu récupérer aussi le chemin de l'image pour afficher l'image correspondant à l'article mais nous n'avions pas pensé à ce détail lors de la conception de la BDD, si le temps l'avait permis cela aurait été possible
 							}?>
-		</section>
-		<section class="boutique_content"> <!-- Le fonctionnement est le même que pour Vêtements, de même pour Alcoolisme -->
-			<div class="title_boutique"><h1>Accessoires</h1></div> 
-			<div class="boutique_display">
-					<?php $reponse = $bdd->query('SELECT nom FROM goodies WHERE categorie="Accessoires"');
-					$donnees= $reponse->fetchall();
-					$reponse2 = $bdd->query('SELECT COUNT(*) FROM goodies WHERE categorie="Accessoires"');
-					$tabmax = $reponse2->fetch();
-					$varmax = $tabmax[0];
-					$var = 0;
-					while($var<$varmax)
-						{
-							echo  '<div class=boutique_item>
-							<p>'.$donnees[$var][0].'</p>
-							<img src="../../images/facebook_logo.png">
-							</div>';
-							$var++;
-						}
-					$reponse->closeCursor(); ?>
-			</div>
-		</section>
-		<section class="boutique_content">
-			<div class="title_boutique"><h1>Alcoolisme</h1></div>
-			<div class="boutique_display">
-				<?php $reponse = $bdd->query('SELECT nom FROM goodies WHERE categorie="Alcoolisme"');
-					$donnees= $reponse->fetchall();
-					$reponse2 = $bdd->query('SELECT COUNT(*) FROM goodies WHERE categorie="Alcoolisme"');
-					$tabmax = $reponse2->fetch();
-					$varmax = $tabmax[0];
-					$var = 0;
-					while($var<$varmax)
-						{
-							echo  '<div class=boutique_item>
-							<p>'.$donnees[$var][0].'</p>
-							<img src="../../images/facebook_logo.png">
-							</div>';
-							$var++;
-						}
-					$reponse->closeCursor(); ?>
-			</div>
-		</section>
+					</div>
+			</section>
+			<section class="boutique_content"> <!-- Le fonctionnement est le même que pour Vêtements, de même pour Alcoolisme -->
+				<div class="title_boutique"><h1>Accessoires</h1></div> 
+					<div class="boutique_display">
+						<?php $reponse = $bdd->query('SELECT nom FROM goodies WHERE categorie="Accessoires"');
+						$donnees= $reponse->fetchall();
+						$reponse2 = $bdd->query('SELECT COUNT(*) FROM goodies WHERE categorie="Accessoires"');
+						$tabmax = $reponse2->fetch();
+						$varmax = $tabmax[0];
+						$var = 0;
+						while($var<$varmax)
+							{
+								echo  '<div class=boutique_item>
+								<p>'.$donnees[$var][0].'</p>
+								<img src="../../images/facebook_logo.png">
+								<select name="number_item_accessoires'.$var.'" class="input_number">
+									<option value="0">0</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+								</select>
+								</div>';
+								$var++;
+							}
+						$reponse->closeCursor(); ?>
+					</div>
+			</section>
+			<section class="boutique_content">
+				<div class="title_boutique"><h1>Alcoolisme</h1></div>
+					<div class="boutique_display">
+						<?php $reponse = $bdd->query('SELECT nom FROM goodies WHERE categorie="Alcoolisme"');
+						$donnees= $reponse->fetchall();
+						$reponse2 = $bdd->query('SELECT COUNT(*) FROM goodies WHERE categorie="Alcoolisme"');
+						$tabmax = $reponse2->fetch();
+						$varmax = $tabmax[0];
+						$var = 0;
+						while($var<$varmax)
+							{
+								echo  '<div class=boutique_item>
+								<p>'.$donnees[$var][0].'</p>
+								<img src="../../images/facebook_logo.png">
+								<select name="number_item_alcoolisme'.$var.'" class="input_number">
+									<option value="0">0</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+								</select>
+								</div>';
+								$var++;
+							}
+						$reponse->closeCursor(); ?>
+					</div>
+					<hr>
+			</section>
+		<input type="submit" name="valider" id="button_valid">
+		</form>
 	</section>
 </body>
 </html>
