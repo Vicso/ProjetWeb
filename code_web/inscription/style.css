@@ -11,6 +11,26 @@ body {
 	background-position: center;
 }
 
+#content{	
+	margin-left: 5%;
+	padding-top: 12vh;
+}
+
+.button:hover {
+    background-color: white;
+    color: black;
+  }
+
+a{
+	text-decoration:none;
+	
+}
+
+a > h3{
+    text-decoration: underline;
+}
+
+
 /* titres*/ 
 h2{
 	text-align: center;
