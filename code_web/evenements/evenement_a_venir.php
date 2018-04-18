@@ -44,76 +44,23 @@
 			<a href="https://www.cesi.fr/"><img src="../../images/cesi_logo.png"></a>
 	</section>
 			
-		<Section id ="content">
-			<h2>Evénements à venir</h2>
-			<div>
-				<div class="eventv">
-					<div class ="imagevent">
-						<img src="../../images/beerpong.png" class ="image"/>
-					</div>
-					<a href=""><button class="button">S'inscrire</button></a>
-					<div class="titrevent"><a href="events/rap_contenders.php"/>
-						<?php $reponse = $bdd->query('SELECT nom FROM evenement WHERE Id=1');
-						while($donnees = $reponse->fetch())
+		<section id ="content">
+					<?php $reponse = $bdd->query('SELECT nom, description, dateevent FROM evenement WHERE confirmation="1"');
+					$donnees= $reponse->fetchall();
+					$reponse2 = $bdd->query('SELECT COUNT(*) FROM evenement WHERE confirmation="1"');
+					$tabmax = $reponse2->fetch();
+					$varmax = $tabmax[0];
+					$var = 0;
+						while($var<$varmax)
 							{
-						 echo  '<p>'.$donnees['nom'].'</p>';
-							} 
-							$reponse->closeCursor(); ?> 
-
-					</div>
-					<div class ="datevent">
-						<?php $reponse = $bdd->query('SELECT dateevent FROM evenement WHERE Id=1');
-						while($donnees = $reponse->fetch())
-							{
-						 echo  '<p>'.$donnees['dateevent'].'</p>';
-							} 
-							$reponse->closeCursor(); ?>
-					</div>
-					<div class="descriptionevent">
-					<hr/>
-					<?php $reponse = $bdd->query('SELECT description FROM evenement WHERE Id=1');
-						while($donnees = $reponse->fetch())
-							{
-						 echo  '<p>'.$donnees['description'].'</p>';
-							} 
-							$reponse->closeCursor(); ?>
-					</div>
-				</div>
-
-				<div class="eventv">
-					<div class ="imagevent">
-						<img src="../../images/beerpong.png" class ="image"/>
-					</div>
-					<a href=""><button class="button">S'inscrire</button></a>
-					<div class="titrevent">
-						<?php $reponse = $bdd->query('SELECT nom FROM evenement WHERE Id=2');
-						while($donnees = $reponse->fetch())
-							{
-						 echo  '<p>'.$donnees['nom'].'</p>';
-							} 
-							$reponse->closeCursor(); ?> 
-					</div>
-					<div class ="datevent">
-						<?php $reponse = $bdd->query('SELECT dateevent FROM evenement WHERE Id=2');
-						while($donnees = $reponse->fetch())
-							{
-						 echo  '<p>'.$donnees['dateevent'].'</p>';
-							} 
-							$reponse->closeCursor(); ?>
-					</div>
-					<div class="descriptionevent">
-					<hr/>
-					<?php $reponse = $bdd->query('SELECT description FROM evenement WHERE Id=2');
-						while($donnees = $reponse->fetch())
-							{
-						 echo  '<p>'.$donnees['description'].'</p>';
-							} 
-							$reponse->closeCursor(); ?>
-					</div>
-				</div>
-
-				
-				</div>
-			</Section>
+								echo  '<div class="eventv">
+									<div class="imageevent"><img src="../../images/beerpong.png" class="image"></div>
+									<div class=titrevent>'.$donnees[$var][0].'</div>
+									<div class="dateevent">'.$donnees[$var][2].'</div>
+									<div class=descriptionevent>'.$donnees[$var][1].'</div>
+								</div>';
+								$var++;
+							}?>
+			</section>
 	</body>
 </html>
