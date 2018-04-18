@@ -7,7 +7,7 @@
 	<meta charset="UTF-8">
 </head>
 <body>
-	<nav>
+	<nav> <!-- CF voter_idee.php -->
 		<a href="index.html" id="home_button"><img src="../../images/home_button.png" id="home_button_img"></a>
 		<ul>
 			<li class="nav_element"><a href="../evenements/evenement_a_venir.php">Evenements à venir</a>
@@ -44,10 +44,10 @@
 	</section>
 	<section class="main_content">
 		<div id="content">
-			<div id="proposer_idee">
+			<div id="proposer_idee"><!-- Le lien vers la page proposer_idee.php -->
 				<a href="./proposer_idee"><p>Proposer une  nouvelle idée</br></br>Vous avez une idée de soirée à proposer ? Vous voulez que le BDE fasse une sortie pédalo, grosse beuverie ou un camping nudiste ? Et bien c'est ici que vous pouvez proposer des idées !</p></a>
 			</div>
-			<div id="voter_idee">
+			<div id="voter_idee"> <!-- Le lien vers la page voter_idee.php -->
 				<a href="./voter_idee"><p>Voter pour une idée déjà existante</br></br>Vous voulez voir et juger les idées déjà proposé ? C'est par ici. Découvrez les idées de vos ami(e)s et choisissez les meilleurs ! Ou choisissez juste celles qui proposent des boissons de type alcoolisée...</p></a>
 			</div>
 		</div>

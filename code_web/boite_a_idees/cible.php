@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php session_start();?>
 <html>
 <head>
 	<title>Boutique BDE Cesi Lyon</title>
@@ -8,7 +9,7 @@
 	<meta charset="UTF-8">
 </head>
 <body>
-	<nav>
+	<nav> <!-- CF voter_idee.php -->
 		<a href="index.html" id="home_button"><img src="../../images/home_button.png" id="home_button_img"></a>
 		<ul>
 			<li class="nav_element"><a href="../evenements/evenement_a_venir.php">Evenements à venir</a>
@@ -44,18 +45,20 @@
 			<a href="https://www.cesi.fr/"><img src="../../images/cesi_logo.png"></a>
 	</section>
 	<section class="main_content">
-		<?php 
-		$titre_idee=$_POST['titre_idee'];
+		<?php
+		$id_user=$_SESSION['id'];
+		$titre_idee=$_POST['titre_idee']; //On donne à titre_idee la valeur du champs titre_idee de la page proposer_idee.php, on fait de même pour la description et la date
 		$description=$_POST['description'];
 		$date_event=$_POST['date_event'];
 		$bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');
-		$requete1 = $bdd->prepare('INSERT INTO evenement (nom, dateevent, description, Id_Users) VALUES (:titre_idee, :date_event, :description, 1)');
-		$requete1->bindValue(':titre_idee', $titre_idee, PDO::PARAM_STR);
+		$requete1 = $bdd->prepare('INSERT INTO evenement (nom, dateevent, description, Id_Users) VALUES (:titre_idee, :date_event, :description, :id_user)'); //Cette requête crée notre idée à partir des infos fournient précédemment
+		$requete1->bindValue(':titre_idee', $titre_idee, PDO::PARAM_STR); //On donne les valeurs de nos champs à remplir dans la requête
 		$requete1->bindValue(':date_event', $date_event, PDO::PARAM_STR);
 		$requete1->bindValue(':description', $description, PDO::PARAM_STR);
-		$requete1->execute();
+		$requete1->bindValue(':id_user', $id_user, PDO::PARAM_STR);
+		$requete1->execute(); //On exec la requête
 		?>
-		<p id="cible_result">Votre idée à bien été enregistré, vous pouvez aller la consulter dans l'onglet "Voter pour une idée"</p>
+		<p id="cible_result">Votre idée à bien été enregistré, vous pouvez aller la consulter dans l'onglet "Voter pour une idée"</p> <!-- Une simple phrase confirmant le bon fonctionnement de sa demande à l'utilisateur -->
 	</section>
 </body>
 </html>
