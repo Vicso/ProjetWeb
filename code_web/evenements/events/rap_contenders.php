@@ -56,11 +56,11 @@
 				$reponse->bindValue(':val', $event, PDO::PARAM_STR); // assignation de la variable event a la variable :val pour les requetes
 				$reponse->execute(); 
 				$donnees= $reponse->fetchall();
-				$reponse2 = $bdd->prepare('SELECT COUNT(*) FROM evenement WHERE id=:val and confirmation=:val');
+				$reponse2 = $bdd->prepare('SELECT COUNT(*) FROM evenement WHERE id=:val and confirmation=:val'); // on compte le nbr de ligne
 				$reponse2->bindValue(':val', $event, PDO::PARAM_STR); 
 				$reponse2->execute();
 				$tabmax = $reponse2->fetch();
-				$varmax = $tabmax[0]; //definition d'un tableau
+				$varmax = $tabmax[0]; //definition d'un tableau contenant les valeurs récupérées
 				$var = 0; // initialisation d'une variable
 					while($var<$varmax) // ouverture d'une boucle while
 						{
@@ -79,7 +79,7 @@
 			<h2> Commentaires </h2> <!-- titre -->
 				<?php $reponse = $bdd->query('SELECT nom, likecom, textcom FROM users INNER JOIN commentaires ON users.Id = commentaires.Id_Users'); // requete sur les table users et commentaire 
 					$donnees= $reponse->fetchall();
-					$reponse2 = $bdd->prepare('SELECT COUNT(*) FROM commentaires WHERE id_evenement=:val');
+					$reponse2 = $bdd->prepare('SELECT COUNT(*) FROM commentaires WHERE id_evenement=:val'); // on comptes le nbr de lignes
 					$reponse2->bindValue(':val', $event, PDO::PARAM_STR);
 					$reponse2->execute();
 					$tabmax = $reponse2->fetch();
