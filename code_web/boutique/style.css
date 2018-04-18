@@ -24,8 +24,29 @@
 }
 .boutique_item img{/*On précise les dimensions maximales de notre image*/
 	max-width: 100%;
-	max-height: 40vh;
+	min-width: 20%;
+	max-height: 30vh;
 }
 .boutique_item p{/*Et la taille de la police*/
 	font-size: 1.1vw;
+}
+.input_number{
+	float: left;
+	width: 80%;
+}
+#button_valid{
+	float: right;
+	margin-right: 5%;
+	margin-top: 2%;
+	margin-bottom: 10%;
+	-webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: #ff0000; 
+    color: white; 
+    border: 2px solid #ff0000;
+}
+#button_valid:hover{
+	background-color: white;
+    color: black;
 }
