@@ -19,7 +19,7 @@ include("Connect.php");
 				<div class="eventv">
 					<div class="contact-form1">
 				        <div class="contact-w3-agileits">
-								<h3>Formulaire d'inscription</h3>
+								<h3>Formulaire d'inscription</h3> <!-- Formulaire d'inscription -->
 				    			<form action="#" method="POST">
         							<div class="form-sub-w3ls">
 		    							<input placeholder="nom"  type="text" name="nom" required="">
@@ -57,7 +57,7 @@ include("Connect.php");
 								</div>
 						</form>
 <?php
-    if(!empty($_POST['mail']))
+    if(!empty($_POST['mail'])) /*Si le formulaire à été remplie avec de bonnes informations on crée le compte*/ 
     {
         
         $nom=$_POST['nom'];

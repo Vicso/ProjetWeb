@@ -5,6 +5,8 @@ session_start();
 include("../inscription/Connect.php"); 
 
 ?>
+
+<!-- Accueil du site après la connexion-->
 <html>
 	<head>
 		<title>Accueil BDE lyon</title>
