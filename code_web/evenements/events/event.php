@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <?php session_start(); ?> <!-- ouverture de session utilisateur -->
-<?php $event = 1 ; ?> <!-- initialisation d'une variable correspondant a un evenement -->
-
 
 <html>
 	<head>
 		<?php $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');?> <!--liaison a la BDD -->
+		<?php $event=$_GET["var"] ?><!-- récuperation de la variable event-->
 		<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1"/>
 		<link rel="stylesheet" href="style.css" type="text/css" /> <!-- lien vers le fichier css de la page -->
 		<link rel="stylesheet" href="../../menu.css" type="text/css" /> <!-- lien vers le fichier css de la barre de navigation-->
@@ -52,11 +51,11 @@
 		<!-- corps de la page -->
 		<Section id ="content">
 			<?php 	  
-				$reponse = $bdd->prepare('SELECT nom, description, dateevent FROM evenement WHERE id=:val and confirmation=:val'); // recuperation des information de la table event en fonction de l'evenement 
-				$reponse->bindValue(':val', $event, PDO::PARAM_STR); // assignation de la variable event a la variable :val pour les requetes
+				$reponse = $bdd->prepare('SELECT nom, description, dateevent FROM evenement WHERE id=:val and confirmation="1"'); // recuperation des informations de la table event en fonction de l'evenement 
+				$reponse->bindValue(':val', $event, PDO::PARAM_STR); // assignation de la variable event à la variable :val pour les requetes
 				$reponse->execute(); 
 				$donnees= $reponse->fetchall();
-				$reponse2 = $bdd->prepare('SELECT COUNT(*) FROM evenement WHERE id=:val and confirmation=:val'); // on compte le nbr de ligne
+				$reponse2 = $bdd->prepare('SELECT COUNT(*) FROM evenement WHERE id=:val and confirmation="1"'); // on compte le nbr de ligne
 				$reponse2->bindValue(':val', $event, PDO::PARAM_STR); 
 				$reponse2->execute();
 				$tabmax = $reponse2->fetch();
@@ -90,20 +89,26 @@
 								// afichage des commentaire pour cet evenement 
 								echo  
 									'<div class="com">
-									<div class="imageusers"><img src="../../../images/beerpong.png" class="image"></div>
+									<div class="imageusers"><img src="../../../images/ghost.png" class="image"></div>
 									<div class=nomusers><h3>'.$donnees[$var][0].'</h3></div>
 									<div class="textcom">'.$donnees[$var][2].'</div>
-									<div class=likecom>'.$donnees[$var][1].'</div>
+									<div class=likecom><button class="button">Like '.$donnees[$var][1].'</button></div>
 									</div>';
 								$var++;
 							}?>
+
+
+
+
 			<div class="combar"> <!-- barre de texte pour le commentaire -->
-				<form action="cible.php" method="post" enctype="multipart/form-data"> <!-- creation du formulaire -->
-					<input class="champ" type="text" value="Tapez votre commentaire ici ... " name="com"> <!-- creation de l'espace pour taper son commentaire -->
+				<form action="<?php echo "target.php?var=".$event?>" method="post" enctype="multipart/form-data"> <!-- creation du formulaire -->
+					<input class="champ" type="text" placeholder="Tapez votre commentaire ici ... " name="text_com"><!-- creation de l'espace pour taper son commentaire -->
+					<input type="text" value= "<?php echo $event?>" name = "event" hidden=true> 
 					<input type="submit" name="Envoyer"> <!-- bouton envoyer , enverra la requete a la BDD -->
 
 				</form>
 			</div>
+
 
 			<h2> Photos </h2> <!-- emplacement pour les photos -->
 				<div class="postimg">
@@ -123,6 +128,6 @@
 
 
 
-			</Section>
+		</Section>
 	</body>
 </html>

@@ -47,22 +47,22 @@
 		<!-- corps de la page -->	
 		<section id ="content">
 			<h2> Evenements du mois </h2> <!-- titre -->
-					<?php $reponse = $bdd->query('SELECT nom, description, dateevent, likeevent FROM evenement WHERE confirmation="1"'); //requete vers la BDD sur la table event
+					<?php $reponse = $bdd->query('SELECT nom, description, dateevent, likeevent, id FROM evenement WHERE confirmation="1"'); //requete vers la BDD sur la table event
 					$donnees= $reponse->fetchall(); // variable donnee prends la valeur de la reponse de la requête
-					$reponse2 = $bdd->query('SELECT COUNT(*) FROM evenement WHERE confirmation="1"');
+					$reponse2 = $bdd->query('SELECT COUNT(*) FROM evenement WHERE confirmation="1"'); // on compte le nbr de lignes
 					$tabmax = $reponse2->fetch();
-					$varmax = $tabmax[0]; // definition dun tableau
+					$varmax = $tabmax[0]; // definition dun tableau contenant les valeurs récupérées
 					$var = 0; //initialisatin d'une variable a 0 
 						while($var<$varmax) // ouverture d'une boucle while
 							{
 								// affichage des valeurs récupérée dans la requête
-								echo '<a href="events/rap_contenders"/><div class="eventv">
+								echo '<a href="events/event.php?var='.$donnees[$var][4].'"/><div class="eventv">
 									<div class="imagevent"><img src="../../images/beerpong.png" class="image"></div>
 									<button class="button">Like '.$donnees[$var][3].'</button>
 									<div class="titrevent"><p>'.$donnees[$var][0].'</p></div>
 									<div class="datevent"><p>'.$donnees[$var][2].'</p></div>
-									<div class="descriptionevent"><hr><p>'.$donnees[$var][1].'</p></div>
-								</div>';
+									<div class="descriptionevent"><hr><p>'.$donnees[$var][1].'</p></div>								
+									</div>';
 								$var++;
 							}?>
 			</section>  	

@@ -51,8 +51,8 @@
 			<h2> Evenements à venir </h2> <!-- titre -->
 			<?php $reponse = $bdd->query('SELECT nom, description, dateevent FROM evenement WHERE confirmation="1"'); // requête vers la table evenement 
 				$donnees= $reponse->fetchall(); // variable donnees prends la valeur de toute la reponse de la requête
-				$reponse2 = $bdd->query('SELECT COUNT(*) FROM evenement WHERE confirmation="1"'); 
-				$tabmax = $reponse2->fetch();
+				$reponse2 = $bdd->query('SELECT COUNT(*) FROM evenement WHERE confirmation="1"'); // on compte le nombre de lignes 
+				$tabmax = $reponse2->fetch(); 
 				$varmax = $tabmax[0]; //definition d'un tableau pour stocker la reponse de la requête 
 				$var = 0; // initialisation d'une variable a 0
 				while($var<$varmax) //ouverture d'une boucle while
