@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+session_start();
+?>
 <html>
 <head>
 	<title>Boutique BDE Cesi Lyon</title>
@@ -6,6 +9,31 @@
 	<link rel="stylesheet" type="text/css" href="../menu.css">
 	<?php $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');?>
 	<meta charset="UTF-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+    function change()
+        {
+            var elem = document.getElementById("likeb");
+            if (elem.value=="Like") elem.value = "Unlike";
+            else elem.value = "Like";
+        }
+    </script>
+    <script>
+    function valider($id)
+        {
+            var elem = document.getElementById("Confirmer"+$id);
+            if (elem.value=="Confirmer")
+            {
+                elem.style.backgroundColor = "green";
+            };
+            $.ajax({
+            url : 'voter_idee.php',
+            data: 'id_event=' + $id,
+            type: "POST",
+            datatype : 'html'
+            });
+        }
+    </script>
 </head>
 <body>
 	<nav> <!-- Ici nous avons dans la balise nav le menu de navigation du haut, avec tous les liens des pages de notre site. Le CSS de tous les éléments menu est dans menu.css -->
@@ -34,6 +62,10 @@
 			<li class="nav_element"><a href="../boutique/panier.php">Panier</a>
 			</li>
 		</ul>
+        <ul>
+			<li class="nav_element"><a href="../inscription/sign_out.php">Deconnexion</a>
+			</li>
+		</ul>
 	</nav>
 	<section id="left_menu"> <!-- Ici nous avons le menu "réseaux" avec des images liens clickables menant tous sur une destination en rapport avec le BDE cesi Lyon/France -->
 			<a href="https://www.facebook.com/BDECesiLyon"><img src="../../images/facebook_logo.png"></a>
@@ -45,20 +77,42 @@
 	</section>
 	<section class="main_content"> <!-- Le main content est comme son nom l'indique le contenu principal -->
 			<?php 
-				$reponse = $bdd->query('SELECT nom, description FROM evenement WHERE confirmation="0"'); //Ici nous récupérons tous les événements qui n'ont pas encore été confirmé par un membre du BDE
+                if(isset($_POST['id_event']))
+                {
+                    $query = $bdd->prepare('UPDATE evenement SET confirmation=1 WHERE Id = :id');
+                    $query->bindValue(':id', $_POST['id_event'], PDO::PARAM_STR);
+                    $query->execute();
+                }
+        
+				$reponse = $bdd->query('SELECT Id, nom, description FROM evenement WHERE confirmation="0"'); //Ici nous récupérons tous les événements qui n'ont pas encore été confirmé par un membre du BDE
 				$donnees= $reponse->fetchall();
-				$reponse2 = $bdd->query('SELECT COUNT(*) FROM evenement WHERE confirmation="0"');//On récupère le nombre d'entrées
-				$tabmax = $reponse2->fetch();
+				$reponse3 = $bdd->query('SELECT COUNT(*) FROM evenement WHERE confirmation="0"');//On récupère le nombre d'entrées
+				$tabmax = $reponse3->fetch();
 				$varmax = $tabmax[0];
 				$var = 0; //On initialise notre compteur
 				while($var<$varmax) //Tant que nous n'avons pas parcouru la totalité des lignes on ne sort pas du while
 					{
+                        $id_event = $donnees[$var][0];
 						echo  '<div class=idea_item>
-						<p class="idea_title">'.$donnees[$var][0].'</p>
-						<p>'.$donnees[$var][1].'</p>
-						<input type="button" value="Like"></div>';
+						<p class="idea_title">'.$donnees[$var][1].'</p>
+						<p>'.$donnees[$var][2].'</p>
+						<input id="likeb" type="button" value="Like" onclick="change()">';
 						$var++; //Dans cette boucle nous créons notre page en la remplissant des informations récupérées précédemment 
-					}?>
+                        if($_SESSION['id'])
+                        {
+                            $query = $bdd->prepare('SELECT autoDBE FROM users WHERE Id = :id AND autoDBE="1"');
+                            $query->bindValue(':id', $_SESSION['id'], PDO::PARAM_STR);
+                            $query->execute();
+                            $bde = $query->fetch();
+                            if($bde['autoDBE'])
+                            {
+                                echo '<input id="Confirmer'.$id_event.'" type="button" value="Confirmer" onclick="valider('.$id_event.')"></div>';
+                            }
+                        }
+                        else{echo '</div>';}
+					}
+            ?>
+				
 	</section>
 </body>
 </html>
