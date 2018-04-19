@@ -7,6 +7,12 @@ include("../inscription/Connect.php");
 
 <!-- Accueil du site après la connexion-->
 <html>
+<?php
+  if ($_SESSION['id']==0) {
+    while (true) {
+    }
+  }
+?>
   <head>
     <title>Accueil BDE lyon</title>
     <meta charset="utf-8" />

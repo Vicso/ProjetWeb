@@ -3,6 +3,12 @@
 session_start();
 ?>
 <html>
+<?php
+	if ($_SESSION['id']==0) {
+		while (true) {
+		}
+	}
+?>
 <head>
 	<title>Boutique BDE Cesi Lyon</title>
 	<link rel="stylesheet" type="text/css" href="style.css">

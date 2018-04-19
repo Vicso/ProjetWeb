@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <?php session_start();?>
 <html>
+<?php
+	if ($_SESSION['id']==0) {
+		while (true) {
+		}
+	}
+?>
 	<head>
 		<?php $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');?>
 		<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1"/>

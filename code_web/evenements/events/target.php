@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <?php session_start();?> <!-- creation de la session utilisateur -->
 <html>
+<?php
+	if ($_SESSION['id']==0) {
+		while (true) {
+		}
+	}
+?>
 <head>
 	<title>Boutique BDE Cesi Lyon</title>
 	<link rel="stylesheet" href="style.css" type="text/css" />

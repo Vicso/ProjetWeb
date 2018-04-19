@@ -2,6 +2,12 @@
 <?php session_start(); ?> <!-- ouverture de session utilisateur -->
 
 <html>
+<?php
+	if ($_SESSION['id']==0) {
+		while (true) {
+		}
+	}
+?>
 	<head>
 		<?php $bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');?> <!--liaison a la BDD -->
 		<?php $event=$_GET["var"] ?><!-- récuperation de la variable event-->
