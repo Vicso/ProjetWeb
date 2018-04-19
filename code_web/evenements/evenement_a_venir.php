@@ -30,7 +30,6 @@
         </script>
 	</head>
 	<body>
-<<<<<<< HEAD
 		<!-- barre de navigation -->
 		<nav>
 		<a href="../Accueil/accueil.php" id="home_button"><img src="../../images/home_button.png" id="home_button_img"></a> <!-- image avec un lien -->
@@ -61,82 +60,6 @@
 		</nav>
 		<section id="left_menu">
 			<a href="https://www.facebook.com/BDECesiLyon"><img src="../../images/facebook_logo.png"></a> <!-- image avec un lien -->
-=======
-<?php
-        if($_SESSION['id']==0)
-        {
-            echo '		
-                <nav>
-                <a href="index.html" id="home_button"><img src="../../images/home_button.png" id="home_button_img"></a> <!-- image avec un lien -->
-                <ul>
-                    <li class="nav_element"><a href="../evenements/evenement_a_venir.php">Evenements à venir</a> <!-- création d\'une liste avec un lien-->
-                    </li>
-                </ul>
-                <ul>
-                    <li class="nav_element"><a href="../evenements/evenement_du_mois.php">Evenements du mois</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="nav_element"><a href="../boite_a_idees/boite_a_idees.php">Boîte à idées</a>
-                        <ul class="submenu">
-                            <li><a href="../boite_a_idees/proposer_idee.php">Proposer une idée</a></li>
-                            <li><a href="../boite_a_idees/voter_idee.php">Voter pour une idée</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="nav_element"><a href="../boutique/boutique.php">Boutique</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="nav_element"><a href="../contact/contact.php">Contactez nous</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="nav_element"><a href="../inscription/sign_in.php">Connexion</a>
-                    </li>
-                </ul>
-            </nav>';
-        }
-        
-        else{
-           echo '		
-                <nav>
-                <a href="index.html" id="home_button"><img src="../../images/home_button.png" id="home_button_img"></a> <!-- image avec un lien -->
-                <ul>
-                    <li class="nav_element"><a href="../evenements/evenement_a_venir.php">Evenements à venir</a> <!-- création d\'une liste avec un lien-->
-                    </li>
-                </ul>
-                <ul>
-                    <li class="nav_element"><a href="../evenements/evenement_du_mois.php">Evenements du mois</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="nav_element"><a href="../boite_a_idees/boite_a_idees.php">Boîte à idées</a>
-                        <ul class="submenu">
-                            <li><a href="../boite_a_idees/proposer_idee.php">Proposer une idée</a></li>
-                            <li><a href="../boite_a_idees/voter_idee.php">Voter pour une idée</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="nav_element"><a href="../boutique/boutique.php">Boutique</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="nav_element"><a href="../contact/contact.php">Contactez nous</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="nav_element"><a href="../inscription/sign_out.php">Deconnexion</a>
-                    </li>
-                </ul>
-            </nav>';
-        }
-?>
-	<section id="left_menu">
-			<a href="https://www.facebook.com/BDECesiLyon"><img src="../../images/facebook_logo.png"></a>
->>>>>>> 247f60c67c966a566d56cf1f7bfa146455c09c4c
 			<a href="https://twitter.com/cesi_sudest"><img src="../../images/twitter_logo.png"></a>
 			<a href="https://www.youtube.com/watch?v=IyIDO3sI4Hw"><img src="../../images/youtube_logo.png">
 			<a href="https://vimeo.com/252150044"><img src="../../images/vimeo_logo.png"></a>
