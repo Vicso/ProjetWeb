@@ -51,11 +51,11 @@
 			<a href="https://www.cesi.fr/"><img src="../../images/cesi_logo.png"></a>
 	</section>
 	<section class="main_content">
-		<form action="votre_panier.php" method="post" enctype="multipart/form-data">
 			<section class="panier_content">
 				<div class="title_panier_content"><h1>Vêtements</h1></div>
 					<div class="boutique_display">
-						<?php $reponse = $bdd->query('SELECT nom FROM goodies WHERE categorie="Vêtements"');
+						<?php 
+						$reponse = $bdd->query('SELECT nom, Id FROM goodies WHERE categorie="Vêtements"');
 						$donnees= $reponse->fetchall();
 						$reponse2 = $bdd->query('SELECT COUNT(*) FROM goodies WHERE categorie="Vêtements"');
 						$tabmax = $reponse2->fetch();
@@ -63,9 +63,13 @@
 						$var = 0;
 						while($var<$varmax)
 							{
+								$requete_quantite = $bdd->query('SELECT quantite FROM acheter WHERE Id_Goodies = '.$donnees[$var][1].'');
+								$donnee_quantite = $requete_quantite->fetch();
+								echo $donnee_quantite[0];
 								echo  '<div class=panier_item>
 								<p>'.$donnees[$var][0].'</p>
 								<img src="../../images/facebook_logo.png">
+								<p>Vous avez commandé '.$donnee_quantite[0].' fois le/la '.$donnees[$var][0].'</p>
 								</div>';
 								$var++;
 							}
@@ -74,9 +78,6 @@
 
 					<hr>
 			</section>
-		<div id="boutique_button"><p>Attention, faire une nouvelle commande avec un panier déjà existant le supprimera définitivement</p>
-		<input type="submit" name="valider" id="button_valid"></div>
-		</form>
 	</section>
 </body>
 </html>
