@@ -51,95 +51,33 @@
 			<a href="https://www.cesi.fr/"><img src="../../images/cesi_logo.png"></a>
 	</section>
 	<section class="main_content">
-		<form action="panier.php" method="post" enctype="multipart/form-data">
-			<section class="boutique_content"> <!-- Contient la partie boutique Vêtements -->
-			<div class="title_boutique"><h1>Vêtements</h1></div> <!-- Contient la partie titre de Vêtements -->
-				<div class="boutique_display"> <!-- Contient la partie où les goodies sont disposées-->
-					<?php $reponse = $bdd->query('SELECT nom FROM goodies WHERE categorie="Vêtements"'); //On récupère le nom de nos articles
-					$donnees= $reponse->fetchall();
-					$reponse2 = $bdd->query('SELECT COUNT(*) FROM goodies WHERE categorie="Vêtements"'); //On compte le nombre de lignes/articles
-					$tabmax = $reponse2->fetch();
-					$varmax = $tabmax[0];
-					$var = 0; //On initialise le compteur
-						while($var<$varmax) //On ne sort pas de la boucle tant que nous n'avons pas afficher tous les articles
-							{
-								echo  '<div class=boutique_item>
-								<p>'.$donnees[$var][0].'</p>
-								<img src="../../images/hoodieBDE.jpg">
-								<select name="number_item_vetements'.$var.'" class="input_number">
-									<option value="0">0</option>
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-								</select>
-								<input type="text" value="'.$donnees[$var][0].'" hidden=true name="name_item_vetements'.$var.'">
-								</div>';
-								$var++; //On affiche le nom de notre article
-								//Normalement on aurait pu récupérer aussi le chemin de l'image pour afficher l'image correspondant à l'article mais nous n'avions pas pensé à ce détail lors de la conception de la BDD, si le temps l'avait permis cela aurait été possible
-							}?>
-					</div>
-			</section>
-			<section class="boutique_content"> <!-- Le fonctionnement est le même que pour Vêtements, de même pour Alcoolisme -->
-				<div class="title_boutique"><h1>Accessoires</h1></div> 
+			<section class="panier_content">
+				<div class="title_panier_content"><h1>Vêtements</h1></div>
 					<div class="boutique_display">
-						<?php $reponse = $bdd->query('SELECT nom FROM goodies WHERE categorie="Accessoires"');
+						<?php 
+						$reponse = $bdd->query('SELECT nom, Id FROM goodies WHERE categorie="Vêtements"');
 						$donnees= $reponse->fetchall();
-						$reponse2 = $bdd->query('SELECT COUNT(*) FROM goodies WHERE categorie="Accessoires"');
+						$reponse2 = $bdd->query('SELECT COUNT(*) FROM goodies WHERE categorie="Vêtements"');
 						$tabmax = $reponse2->fetch();
 						$varmax = $tabmax[0];
 						$var = 0;
 						while($var<$varmax)
 							{
-								echo  '<div class=boutique_item>
+								$requete_quantite = $bdd->query('SELECT quantite FROM acheter WHERE Id_Goodies = '.$donnees[$var][1].'');
+								$donnee_quantite = $requete_quantite->fetch();
+								echo $donnee_quantite[0];
+								echo  '<div class=panier_item>
 								<p>'.$donnees[$var][0].'</p>
 								<img src="../../images/facebook_logo.png">
-								<select name="number_item_accessoires'.$var.'" class="input_number">
-									<option value="0">0</option>
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-								</select>
-								<input type="text" value="'.$donnees[$var][0].'" hidden=true name="name_item_accessoires'.$var.'">
+								<p>Vous avez commandé '.$donnee_quantite[0].' fois le/la '.$donnees[$var][0].'</p>
 								</div>';
 								$var++;
 							}
 						$reponse->closeCursor(); ?>
 					</div>
-			</section>
-			<section class="boutique_content">
-				<div class="title_boutique"><h1>Alcoolisme</h1></div>
-					<div class="boutique_display">
-						<?php $reponse = $bdd->query('SELECT nom FROM goodies WHERE categorie="Alcoolisme"');
-						$donnees= $reponse->fetchall();
-						$reponse2 = $bdd->query('SELECT COUNT(*) FROM goodies WHERE categorie="Alcoolisme"');
-						$tabmax = $reponse2->fetch();
-						$varmax = $tabmax[0];
-						$var = 0;
-						while($var<$varmax)
-							{
-								echo  '<div class=boutique_item>
-								<p>'.$donnees[$var][0].'</p>
-								<img src="../../images/facebook_logo.png">
-								<select name="number_item_alcoolisme'.$var.'" class="input_number">
-									<option value="0">0</option>
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-								</select>
-								<input type="text" value="'.$donnees[$var][0].'" hidden=true name="name_item_alcoolisme'.$var.'">
-								</div>';
-								$var++;
-							}
-						$reponse->closeCursor(); ?>
-					</div>
+
 					<hr>
 			</section>
-		<div id="boutique_button"><p>Attention, faire une nouvelle commande avec un panier déjà existant le supprimera définitivement</p>
-		<input type="submit" name="valider" id="button_valid"></div>
-		</form>
 	</section>
 </body>
 </html>
