@@ -10,7 +10,6 @@ session_start();
 	<meta charset="UTF-8">
 </head>
 <body>
-<<<<<<< HEAD
 	<nav> <!-- CF voter_idee.php -->
 		<a href="../Accueil/accueil.php" id="home_button"><img src="../../images/home_button.png" id="home_button_img"></a>
 		<ul>
@@ -38,10 +37,8 @@ session_start();
 			</li>
 		</ul>
 	</nav>
-=======
-
-<?php
-        if($_SESSION['id']==0)
+<!--<?php
+        /*if($_SESSION['id']==0)
         {
             echo '		
                 <nav>
@@ -111,8 +108,7 @@ session_start();
                 </ul>
             </nav>';
         }
-?>
->>>>>>> 247f60c67c966a566d56cf1f7bfa146455c09c4c
+*/?> -->
 	<section id="left_menu">
 			<a href="https://www.facebook.com/BDECesiLyon"><img src="../../images/facebook_logo.png"></a>
 			<a href="https://twitter.com/cesi_sudest"><img src="../../images/twitter_logo.png"></a>
