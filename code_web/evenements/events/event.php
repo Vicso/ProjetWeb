@@ -73,9 +73,9 @@
 							echo  
 								'<div class="event">
 								<div class="titrevent"><h2>'.$donnees[$var][0].'</h2></div>
-								<div class="imagevent"><img src="../../../images/beerpong.png" class="image"></div>
+								<div class="imagevent"><img src="../../../images/rapcontenders.jpg" class="image"></div>
 								<div class="datevent">'.$donnees[$var][2].'</div>
-								<div class="descriptionevent">'.$donnees[$var][1].'</div>
+								<hr><div class="descriptionevent">'.$donnees[$var][1].'</div>
 								</div>';
 							$var++;
 						}?>
@@ -92,13 +92,13 @@
 					$var = 0;
 						while($var<$varmax)
 							{
-								// afichage des commentaire pour cet evenement 
+									// afichage des commentaire pour cet evenement 
 								echo  
 									'<div class="com">
 									<div class="imageusers"><img src="../../../images/ghost.png" class="image"></div>
-									<div class=nomusers><h3>'.$donnees[$var][0].'</h3></div>
+									<div class=nomusers><h3>'.$donnees[$var][0].' à dit : </h3></div>
 									<div class="textcom">'.$donnees[$var][2].'</div>
-									<div class=likecom><button class="button">Like '.$donnees[$var][1].'</button></div>
+									<button class="button">Like '.$donnees[$var][1].'</button>
 									</div>';
 								$var++;
 							}?>
@@ -107,10 +107,10 @@
 
 
 			<div class="combar"> <!-- barre de texte pour le commentaire -->
-				<form action="<?php echo "target.php?var=".$event?>" method="post" enctype="multipart/form-data"> <!-- creation du formulaire -->
+				<form action="<?php echo "target.php?var=".$event?>" method="post" enctype="multipart/form-data" class ="form"> <!-- creation du formulaire -->
 					<input class="champ" type="text" placeholder="Tapez votre commentaire ici ... " name="text_com"><!-- creation de l'espace pour taper son commentaire -->
 					<input type="text" value= "<?php echo $event?>" name = "event" hidden=true> 
-					<input type="submit" name="Envoyer"> <!-- bouton envoyer , enverra la requete a la BDD -->
+					<input type="submit" name="Envoyer" class="bouton"> <!-- bouton envoyer , enverra la requete a la BDD -->
 
 				</form>
 			</div>
