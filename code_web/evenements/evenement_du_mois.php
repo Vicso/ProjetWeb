@@ -34,12 +34,17 @@
 			</li>
 		</ul>
 		<ul>
-			<li class="nav_element"><a href="../boutique/boutique.php">Boutique</a>
-			</li>
+			<li class="nav_element"><a href="../boutique/boutique.php">Boutique</a></li>
 		</ul>
 		<ul>
-			<li class="nav_element"><a href="../boutique/votre_panier.php">Panier</a>
-			</li>
+			<li class="nav_element"><a href="../boutique/votre_panier.php">Panier</a></li>
+		</ul>
+		<ul></ul><ul></ul><ul></ul><ul></ul><ul></ul><ul></ul>
+		<ul>
+			<li class="nav_element"><a href="../Inscription/sign_up.php">Inscription</a></li>
+		</ul>
+		<ul>
+			<li class="nav_element"><a href="../Inscription/sign_in.php">Connexion</a></li>
 		</ul>
 	</nav>
 	<section id="left_menu">
