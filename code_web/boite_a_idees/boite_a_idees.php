@@ -8,7 +8,7 @@
 </head>
 <body>
 	<nav> <!-- CF voter_idee.php -->
-		<a href="index.html" id="home_button"><img src="../../images/home_button.png" id="home_button_img"></a>
+		<a href="../Accueil/accueil.php" id="home_button"><img src="../../images/home_button.png" id="home_button_img"></a>
 		<ul>
 			<li class="nav_element"><a href="../evenements/evenement_a_venir.php">Evenements à venir</a>
 			</li>
@@ -30,7 +30,7 @@
 			</li>
 		</ul>
 		<ul>
-			<li class="nav_element"><a href="../boutique/panier.php">Panier</a>
+			<li class="nav_element"><a href="../boutique/votre_panier.php">Panier</a>
 			</li>
 		</ul>
 	</nav>

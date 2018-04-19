@@ -14,7 +14,7 @@
 	<body>
 		<!-- barre de navigation-->
 		<nav>
-		<a href="index.html" id="home_button"><img src="../../../images/home_button.png" id="home_button_img"></a> <!-- image avec lien --> 
+		<a href="../Accueil/accueil.php" id="home_button"><img src="../../../images/home_button.png" id="home_button_img"></a> <!-- image avec lien --> 
 		<ul>
 			<li class="nav_element"><a href="../evenement_a_venir.php">Evenements à venir</a> <!-- creation d'une liste vec lien -->
 			</li>
@@ -36,7 +36,7 @@
 			</li>
 		</ul>
 		<ul>
-			<li class="nav_element"><a href="../boutique/panier.php">Panier</a>
+			<li class="nav_element"><a href="../boutique/votre_panier.php">Panier</a>
 			</li>
 		</ul>
 		</nav>

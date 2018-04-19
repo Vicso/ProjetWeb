@@ -10,7 +10,7 @@
 	</head>
 	<body>
 		<nav>
-		<a href="index.html" id="home_button"><img src="../../images/home_button.png" id="home_button_img"></a> <!-- image avec un lien -->
+		<a href="../Accueil/accueil.php" id="home_button"><img src="../../images/home_button.png" id="home_button_img"></a> <!-- image avec un lien -->
 		<ul>
 			<li class="nav_element"><a href="../evenements/evenement_a_venir.php">Evenements à venir</a> <!-- création d'une liste avec un lien-->
 			</li>
@@ -32,7 +32,7 @@
 			</li>
 		</ul>
 		<ul>
-			<li class="nav_element"><a href="../boutique/panier.php">Panier</a>
+			<li class="nav_element"><a href="../boutique/votre_panier.php">Panier</a>
 			</li>
 		</ul>
 	</nav>

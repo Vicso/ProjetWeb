@@ -16,7 +16,7 @@ include("../inscription/Connect.php");
 
         <body>
            <div class="titre_accueil">
-               <h1>Bienvenu jeune Césien</h1>
+               <h1>Bienvenue jeune Césien</h1>
            </div>
            <div class="content">
                <a href="../evenements/evenement_a_venir.php"><div class="link_menu">

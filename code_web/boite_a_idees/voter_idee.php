@@ -37,7 +37,7 @@ session_start();
 </head>
 <body>
 	<nav> <!-- Ici nous avons dans la balise nav le menu de navigation du haut, avec tous les liens des pages de notre site. Le CSS de tous les éléments menu est dans menu.css -->
-		<a href="index.html" id="home_button"><img src="../../images/home_button.png" id="home_button_img"></a>
+		<a href="../Accueil/accueil.php" id="home_button"><img src="../../images/home_button.png" id="home_button_img"></a>
 		<ul>
 			<li class="nav_element"><a href="../evenements/evenement_a_venir.php">Evenements à venir</a>
 			</li>
@@ -59,7 +59,7 @@ session_start();
 			</li>
 		</ul>
 		<ul>
-			<li class="nav_element"><a href="../boutique/panier.php">Panier</a>
+			<li class="nav_element"><a href="../boutique/votre_panier.php">Panier</a>
 			</li>
 		</ul>
         <ul>

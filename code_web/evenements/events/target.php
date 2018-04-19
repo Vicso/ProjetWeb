@@ -33,7 +33,7 @@
 			</li>
 		</ul>
 		<ul>
-			<li class="nav_element"><a href="../boutique/panier.php">Panier</a>
+			<li class="nav_element"><a href="../boutique/votre_panier.php">Panier</a>
 			</li>
 		</ul>
 	</nav>
