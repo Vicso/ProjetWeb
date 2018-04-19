@@ -70,16 +70,11 @@
 			$tab_goodie = $reponse_v->fetch();
 			$id_goodie = $tab_goodie[0];
 			$compteur1++;
-			if ($vetement==0) {
-				//On ne fait rien
-			}
-			else{
-				$requete_v = $bdd->prepare('INSERT INTO acheter (Id, Id_Goodies, quantite) VALUES (:id, :id_goodie, :quantite)');
-				$requete_v->bindValue(':id', $id_user, PDO::PARAM_STR);
-				$requete_v->bindValue(':id_goodie', $id_goodie, PDO::PARAM_STR);
-				$requete_v->bindValue(':quantite', $vetement, PDO::PARAM_STR);
-				$requete_v->execute();
-			}
+			$requete_v = $bdd->prepare('INSERT INTO acheter (Id, Id_Goodies, quantite) VALUES (:id, :id_goodie, :quantite)');
+			$requete_v->bindValue(':id', $id_user, PDO::PARAM_STR);
+			$requete_v->bindValue(':id_goodie', $id_goodie, PDO::PARAM_STR);
+			$requete_v->bindValue(':quantite', $vetement, PDO::PARAM_STR);
+			$requete_v->execute();
 		};
 		$reponse2_v = $bdd->query('SELECT COUNT(*) FROM goodies WHERE categorie="Accessoires"'); //On compte le nombre de lignes/articles
 		$tabmax = $reponse2_v->fetch();
@@ -92,16 +87,11 @@
 			$tab_goodie = $reponse_v->fetch();
 			$id_goodie = $tab_goodie[0];
 			$compteur1++;
-			if ($vetement==0) {
-				//On ne fait rien
-			}
-			else{
-				$requete_v = $bdd->prepare('INSERT INTO acheter (Id, Id_Goodies, quantite) VALUES (:id, :id_goodie, :quantite)');
-				$requete_v->bindValue(':id', $id_user, PDO::PARAM_STR);
-				$requete_v->bindValue(':id_goodie', $id_goodie, PDO::PARAM_STR);
-				$requete_v->bindValue(':quantite', $vetement, PDO::PARAM_STR);
-				$requete_v->execute();
-			}
+			$requete_v = $bdd->prepare('INSERT INTO acheter (Id, Id_Goodies, quantite) VALUES (:id, :id_goodie, :quantite)');
+			$requete_v->bindValue(':id', $id_user, PDO::PARAM_STR);
+			$requete_v->bindValue(':id_goodie', $id_goodie, PDO::PARAM_STR);
+			$requete_v->bindValue(':quantite', $vetement, PDO::PARAM_STR);
+			$requete_v->execute();	
 		};
 		$reponse2_v = $bdd->query('SELECT COUNT(*) FROM goodies WHERE categorie="Alcoolisme"'); //On compte le nombre de lignes/articles
 		$tabmax = $reponse2_v->fetch();
@@ -114,16 +104,11 @@
 			$tab_goodie = $reponse_v->fetch();
 			$id_goodie = $tab_goodie[0];
 			$compteur1++;
-			if ($vetement==0) {
-				//On ne fait rien
-			}
-			else{
-				$requete_v = $bdd->prepare('INSERT INTO acheter (Id, Id_Goodies, quantite) VALUES (:id, :id_goodie, :quantite)');
-				$requete_v->bindValue(':id', $id_user, PDO::PARAM_STR);
-				$requete_v->bindValue(':id_goodie', $id_goodie, PDO::PARAM_STR);
-				$requete_v->bindValue(':quantite', $vetement, PDO::PARAM_STR);
-				$requete_v->execute();
-			}
+			$requete_v = $bdd->prepare('INSERT INTO acheter (Id, Id_Goodies, quantite) VALUES (:id, :id_goodie, :quantite)');
+			$requete_v->bindValue(':id', $id_user, PDO::PARAM_STR);
+			$requete_v->bindValue(':id_goodie', $id_goodie, PDO::PARAM_STR);
+			$requete_v->bindValue(':quantite', $vetement, PDO::PARAM_STR);
+			$requete_v->execute();
 		};
 		?>
 		<a href="./boutique.php">Revenir vers la boutique pour changer sa commande</a>
