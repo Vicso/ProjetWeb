@@ -1,54 +1,31 @@
-
-.content div
-{
-    background-color: gray;
-    opacity: .99;
-    border-radius: 20px;
-    width: 45%;
-    height: 45%;
-    float: left;
-    padding-top: 1%;
-    margin: 1%;
+.link_menu{
+    width: 40%;
+    height: 40%;
+    margin-left: 4.5%;
+    margin-right: 4.5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    background-color: blue;
+    display: inline-block;
+    background-color: #424558;
+    border-style: solid;
+    border-color: rgb(230, 77, 38);
+    opacity: 0.95;
 }
-
-.content2 div
-{
-    background-color: gray;
-    opacity: .9;
-    border-radius: 20px;
-    width: 45%;
-    height: 45%;
-    float: right;
-    padding-top: 1%;
-    margin: 1%;
+.link_menu:hover{
+    background-color: rgb(230, 77, 38);
+    border-color: #424558;
 }
-
-.content:hover, .content2:hover
-{
-    opacity: .8;
-}
-
-.content img
-{width: 90%;}
-    
-.content2 img
-{width: 90%;}
-
-.content
-{
+.link_menu p{
+    color: white;
     text-align: center;
+    font-size: 4vw;
 }
-.content2
-{
+h1{
     text-align: center;
+    font-size: 5vw;
+}
+body{
+    background-image: url("../../images/test5.png");
 }
 
-H1{
-    font-size: 40px;
-    text-align: center;
-}
-
-body
-{
-    background: url(../../images/test5.png)0px 0px;
-}

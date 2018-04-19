@@ -31,7 +31,7 @@
 			</li>
 		</ul>
 		<ul>
-			<li class="nav_element"><a href="../contact/contact.php">Contactez nous</a>
+			<li class="nav_element"><a href="../boutique/panier.php">Panier</a>
 			</li>
 		</ul>
 	</nav>
@@ -66,6 +66,7 @@
 									<option value="3">3</option>
 									<option value="4">4</option>
 								</select>
+								<input type="text" value="'.$donnees[$var][0].'" hidden=true name="name_item_vetements'.$var.'">
 								</div>';
 								$var++; //On affiche le nom de notre article
 								//Normalement on aurait pu récupérer aussi le chemin de l'image pour afficher l'image correspondant à l'article mais nous n'avions pas pensé à ce détail lors de la conception de la BDD, si le temps l'avait permis cela aurait été possible
@@ -93,6 +94,7 @@
 									<option value="3">3</option>
 									<option value="4">4</option>
 								</select>
+								<input type="text" value="'.$donnees[$var][0].'" hidden=true name="name_item_accessoires'.$var.'">
 								</div>';
 								$var++;
 							}
@@ -120,6 +122,7 @@
 									<option value="3">3</option>
 									<option value="4">4</option>
 								</select>
+								<input type="text" value="'.$donnees[$var][0].'" hidden=true name="name_item_alcoolisme'.$var.'">
 								</div>';
 								$var++;
 							}
@@ -127,7 +130,8 @@
 					</div>
 					<hr>
 			</section>
-		<input type="submit" name="valider" id="button_valid">
+		<div id="boutique_button"><p>Attention, faire une nouvelle commande avec un panier déjà existant le supprimera définitivement</p>
+		<input type="submit" name="valider" id="button_valid"></div>
 		</form>
 	</section>
 </body>

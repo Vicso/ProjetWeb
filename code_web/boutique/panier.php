@@ -32,7 +32,7 @@
 			</li>
 		</ul>
 		<ul>
-			<li class="nav_element"><a href="../contact/contact.php">Contactez nous</a>
+			<li class="nav_element"><a href="../boutique/panier.php">Panier</a>
 			</li>
 		</ul>
 	</nav>
@@ -47,18 +47,79 @@
 	<section class="main_content">
 		<?php
 		$id_user=$_SESSION['id'];
-		$titre_idee=$_POST['titre_idee']; //On donne à titre_idee la valeur du champs titre_idee de la page proposer_idee.php, on fait de même pour la description et la date
-		$description=$_POST['description'];
-		$date_event=$_POST['date_event'];
-		$bdd = new PDO('mysql:host=localhost;dbname=projetweb;charset=utf8', 'root', '');
-		$requete1 = $bdd->prepare('INSERT INTO evenement (nom, dateevent, description, Id_Users) VALUES (:titre_idee, :date_event, :description, :id_user)'); //Cette requête crée notre idée à partir des infos fournient précédemment
-		$requete1->bindValue(':titre_idee', $titre_idee, PDO::PARAM_STR); //On donne les valeurs de nos champs à remplir dans la requête
-		$requete1->bindValue(':date_event', $date_event, PDO::PARAM_STR);
-		$requete1->bindValue(':description', $description, PDO::PARAM_STR);
-		$requete1->bindValue(':id_user', $id_user, PDO::PARAM_STR);
-		$requete1->execute(); //On exec la requête
+
+		$delete = $bdd->prepare('DELETE FROM acheter WHERE Id=:id_user');
+		$delete->bindValue(':id_user', $id_user, PDO::PARAM_STR);
+		$delete->execute();
+
+		$reponse2_v = $bdd->query('SELECT COUNT(*) FROM goodies WHERE categorie="Vêtements"'); //On compte le nombre de lignes/articles
+		$tabmax = $reponse2_v->fetch();
+		$varmax = $tabmax[0];
+		$compteur1 = 0;
+
+		while ($compteur1<$varmax) {
+			$vetement=$_POST['number_item_vetements'.$compteur1];
+			$nom_goodie=$_POST['name_item_vetements'.$compteur1];
+			$reponse_v = $bdd->query('SELECT Id FROM goodies WHERE nom="'.$nom_goodie.'"');
+			$tab_goodie = $reponse_v->fetch();
+			$id_goodie = $tab_goodie[0];
+			$compteur1++;
+			if ($vetement==0) {
+				//On ne fait rien
+			}
+			else{
+				$requete_v = $bdd->prepare('INSERT INTO acheter (Id, Id_Goodies, quantite) VALUES (:id, :id_goodie, :quantite)');
+				$requete_v->bindValue(':id', $id_user, PDO::PARAM_STR);
+				$requete_v->bindValue(':id_goodie', $id_goodie, PDO::PARAM_STR);
+				$requete_v->bindValue(':quantite', $vetement, PDO::PARAM_STR);
+				$requete_v->execute();
+			}
+		};
+		$reponse2_v = $bdd->query('SELECT COUNT(*) FROM goodies WHERE categorie="Accessoires"'); //On compte le nombre de lignes/articles
+		$tabmax = $reponse2_v->fetch();
+		$varmax = $tabmax[0];
+		$compteur1 = 0;
+		while ($compteur1<$varmax) {
+			$vetement=$_POST['number_item_accessoires'.$compteur1];
+			$nom_goodie=$_POST['name_item_accessoires'.$compteur1];
+			$reponse_v = $bdd->query('SELECT Id FROM goodies WHERE nom="'.$nom_goodie.'"');
+			$tab_goodie = $reponse_v->fetch();
+			$id_goodie = $tab_goodie[0];
+			$compteur1++;
+			if ($vetement==0) {
+				//On ne fait rien
+			}
+			else{
+				$requete_v = $bdd->prepare('INSERT INTO acheter (Id, Id_Goodies, quantite) VALUES (:id, :id_goodie, :quantite)');
+				$requete_v->bindValue(':id', $id_user, PDO::PARAM_STR);
+				$requete_v->bindValue(':id_goodie', $id_goodie, PDO::PARAM_STR);
+				$requete_v->bindValue(':quantite', $vetement, PDO::PARAM_STR);
+				$requete_v->execute();
+			}
+		};
+		$reponse2_v = $bdd->query('SELECT COUNT(*) FROM goodies WHERE categorie="Alcoolisme"'); //On compte le nombre de lignes/articles
+		$tabmax = $reponse2_v->fetch();
+		$varmax = $tabmax[0];
+		$compteur1 = 0;
+		while ($compteur1<$varmax) {
+			$vetement=$_POST['number_item_alcoolisme'.$compteur1];
+			$nom_goodie=$_POST['name_item_alcoolisme'.$compteur1];
+			$reponse_v = $bdd->query('SELECT Id FROM goodies WHERE nom="'.$nom_goodie.'"');
+			$tab_goodie = $reponse_v->fetch();
+			$id_goodie = $tab_goodie[0];
+			$compteur1++;
+			if ($vetement==0) {
+				//On ne fait rien
+			}
+			else{
+				$requete_v = $bdd->prepare('INSERT INTO acheter (Id, Id_Goodies, quantite) VALUES (:id, :id_goodie, :quantite)');
+				$requete_v->bindValue(':id', $id_user, PDO::PARAM_STR);
+				$requete_v->bindValue(':id_goodie', $id_goodie, PDO::PARAM_STR);
+				$requete_v->bindValue(':quantite', $vetement, PDO::PARAM_STR);
+				$requete_v->execute();
+			}
+		};
 		?>
-		<p id="cible_result">Votre idée à bien été enregistré, vous pouvez aller la consulter dans l'onglet "Voter pour une idée"</p> <!-- Une simple phrase confirmant le bon fonctionnement de sa demande à l'utilisateur -->
 	</section>
 </body>
 </html>

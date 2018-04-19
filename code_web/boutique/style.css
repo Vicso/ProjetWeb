@@ -50,3 +50,18 @@
 	background-color: white;
     color: black;
 }
+#boutique_button{
+	width: 100%;
+	margin-top: 1.7%;
+}
+#boutique_button p{
+	width: 100%;
+	display: inline-block;
+	font-size: 0.9vw;
+	text-align: right;
+	margin-top: 0;
+}
+#boutique_button input{
+	display: inline-block;
+	margin-top: 0;
+}
