@@ -53,7 +53,7 @@
 			
 		<section id ="content">
 			<h2> Evenements du mois </h2>
-					<?php $reponse = $bdd->query('SELECT nom, description, dateevent, likeevent FROM evenement WHERE confirmation="1"');
+					<?php $reponse = $bdd->query('SELECT nom, description, dateevent, likeevent, id FROM evenement WHERE confirmation="1"');
 					$donnees= $reponse->fetchall();
 					$reponse2 = $bdd->query('SELECT COUNT(*) FROM evenement WHERE confirmation="1"');
 					$tabmax = $reponse2->fetch();
@@ -61,7 +61,7 @@
 					$var = 0;
 						while($var<$varmax)
 							{
-								echo '<a href="events/rap_contenders"/><div class="eventv">
+								echo '<a href="events/event.php?var='.$donnees[$var][4].'"/><div class="eventv">
 									<div class="imagevent"><img src="../../images/beerpong.png" class="image"></div>
 									<button class="button">Like '.$donnees[$var][3].'</button>
 									<div class="titrevent"><p>'.$donnees[$var][0].'</p></div>
