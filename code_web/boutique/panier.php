@@ -120,6 +120,8 @@
 			}
 		};
 		?>
+		<a href="./boutique.php">Revenir vers la boutique pour changer sa commande</a>
+		<a href="./votre_panier.php">Consulter votre panier</a>
 	</section>
 </body>
 </html>
