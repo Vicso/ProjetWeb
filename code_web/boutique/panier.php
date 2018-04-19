@@ -57,6 +57,23 @@
 		$requete1->bindValue(':description', $description, PDO::PARAM_STR);
 		$requete1->bindValue(':id_user', $id_user, PDO::PARAM_STR);
 		$requete1->execute(); //On exec la requête
+
+		$reponse2 = $bdd->query('SELECT COUNT(*) FROM goodies WHERE categorie="Vêtements"'); //On compte le nombre de lignes/articles
+		$tabmax = $reponse2->fetch();
+		$varmax = $tabmax[0];
+		$compteur1 = 0;
+		while ($compteur1<$varmax) {
+			$vetement=$_POST['number_item_vetements'.$compteur1];
+			$compteur2 = 0;
+			if ($vetement=0) {
+				//On ne fait rien
+			}
+			else{
+				while ($compteur2 < $vetement) {
+					$requete1 = $bdd->prepare('INSERT INTO acheter (Id, Id_Goodies) VALUES ()'); 
+				}
+			}
+		};
 		?>
 		<p id="cible_result">Votre idée à bien été enregistré, vous pouvez aller la consulter dans l'onglet "Voter pour une idée"</p> <!-- Une simple phrase confirmant le bon fonctionnement de sa demande à l'utilisateur -->
 	</section>
