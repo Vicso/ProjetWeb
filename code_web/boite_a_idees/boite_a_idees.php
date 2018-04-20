@@ -42,6 +42,14 @@ session_start();
 			<li class="nav_element"><a href="../boutique/votre_panier.php">Panier</a>
 			</li>
 		</ul>
+        <ul>
+            <li class="compte"><?php echo '<p> Connecté en tant que : '. $_SESSION['prenom'].'</p>'?>
+            </li>
+        </ul>
+        <ul>
+            <li class="nav_element"><a href="../inscription/sign_out.php">Deconnexion</a>
+            </li>
+        </ul>
 	</nav>
 <!--<?php
         /*if($_SESSION['id']==0)

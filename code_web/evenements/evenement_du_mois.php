@@ -39,12 +39,13 @@
 		<ul>
 			<li class="nav_element"><a href="../boutique/votre_panier.php">Panier</a></li>
 		</ul>
-		<ul></ul><ul></ul><ul></ul><ul></ul><ul></ul><ul></ul>
 		<ul>
-			<li class="nav_element"><a href="../Inscription/sign_up.php">Inscription</a></li>
+			<li class="compte"><?php echo '<p> Connecté en tant que : '. $_SESSION['prenom'].'</p>'?>
+			</li>
 		</ul>
 		<ul>
-			<li class="nav_element"><a href="../Inscription/sign_in.php">Connexion</a></li>
+			<li class="nav_element"><a href="../inscription/sign_out.php">Deconnexion</a>
+			</li>
 		</ul>
 	</nav>
 	<section id="left_menu">
