@@ -3,7 +3,7 @@
 	padding-top: 12vh;
 	margin-left: 5%;
 }
-.title_boutique h1{/*On définit l'allure de notre titre*/
+.title_boutique h1, .title_panier_content h1{/*On définit l'allure de notre titre*/
 	font-size: 1.5vw;
 	width: 100%;
 	text-align: center;
@@ -12,22 +12,22 @@
 	border-radius: 75px;
 	border-color: #424558;
 }
-.boutique_display{/*C'est dans le nom...*/
+.boutique_display, .panier_display{/*C'est dans le nom...*/
 	width: 100%;
 	margin-left: 3%;
 	margin-right: 3%;
 	display: inline-block;
 }
-.boutique_item{/*Pareil*/
+.boutique_item, .panier_item{/*Pareil*/
 	width: 20%;
 	display: inline-block;
 }
-.boutique_item img{/*On précise les dimensions maximales de notre image*/
+.boutique_item img, .panier_item img{/*On précise les dimensions maximales de notre image*/
 	max-width: 100%;
 	min-width: 20%;
 	max-height: 30vh;
 }
-.boutique_item p{/*Et la taille de la police*/
+.boutique_item p, .panier_item p{/*Et la taille de la police*/
 	font-size: 1.1vw;
 }
 .input_number{
@@ -64,4 +64,27 @@
 #boutique_button input{
 	display: inline-block;
 	margin-top: 0;
+}
+.panier_item{
+	margin-left: 2%;
+}
+.red{
+	color: red;
+}
+#link_panier a{
+	text-align: center;
+	width: 40%;
+	display: inline-block;
+	padding-top: 3%;
+	padding-bottom: 3%;
+	margin-left: 4.5%;
+	margin-right: 4.5%;
+	background-color: #424558;
+	color: #ffffff;
+	text-decoration: none;
+	font-size: 1.1vw;
+}
+#link_panier a:hover{
+	background-color: rgb(230, 77, 38);
+	color: black;
 }

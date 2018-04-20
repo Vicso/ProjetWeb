@@ -119,8 +119,10 @@
 			$requete_v->execute();
 		};
 		?>
-		<a href="./boutique.php">Revenir vers la boutique pour changer sa commande</a>
-		<a href="./votre_panier.php">Consulter votre panier</a>
+		<div id="link_panier">
+			<a href="./boutique.php">Revenir vers la boutique pour changer sa commande</a>
+			<a href="./votre_panier.php">Consulter votre panier</a>
+		</div>
 	</section>
 </body>
 </html>
