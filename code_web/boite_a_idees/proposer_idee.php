@@ -59,17 +59,17 @@
 			<a href="https://www.cesi.fr/"><img src="../../images/cesi_logo.png"></a>
 	</section>
 	<section class="main_content">	
-		
+		<h2> Proposez donc une idée !</h2>	
 		<form action="cible.php" method="post" enctype="multipart/form-data"> <!-- Ici on crée le formulaire qui permet de proposer des idées -->
 
-			<p>Le nom de votre idée: </p>
-			<input type="text" name="titre_idee"> <!-- Ici on récupère le titre -->
-			<p>La description de votre idée: </p>
-			<textarea name="description" rows="8" cols="60"></textarea> <!-- On prend un textarea pour la description car elle peut être très longue -->
-			<p>La date à laquelle vous aimeriez faire votre événement (vous n'êtes pas obligé de rentrer une valeur)</p>
-			<input type="date" name="date_event"> <!-- Ici on récupère la date -->
-			<p>C'est bon ?</p>
-			<input type="submit" name="valider"> <!-- Bouton validation -->
+			<div class="nomidee"><p>Le nom de votre idée: </p>
+			<input type="text" name="titre_idee" ></div> <!-- Ici on récupère le titre -->
+			<div class="textarea"><p>La description de votre idée: </p>
+			<textarea name="description" rows="8" cols="60" ></textarea></div> <!-- On prend un textarea pour la description car elle peut être très longue -->
+			<div class="datevent"><p>La date à laquelle vous aimeriez faire votre événement</p>
+			<input type="date" name="date_event"></div> <!-- Ici on récupère la date -->
+			<div  class="button"><p>C'est bon ?</p>
+			<input type="submit" name="valider"></div> <!-- Bouton validation -->
 
 		</form>
 
