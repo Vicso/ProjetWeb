@@ -17,9 +17,9 @@ session_start();
 	<meta charset="UTF-8">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script>
-    function change()
+    function change($id)
         {
-            var elem = document.getElementById("likeb");
+            var elem = document.getElementById("likeb"+$id);
             if (elem.value=="Like") elem.value = "Unlike";
             else elem.value = "Like";
         }
@@ -102,7 +102,7 @@ session_start();
 						echo  '<div class=idea_item>
 						<p class="idea_title">'.$donnees[$var][1].'</p>
 						<p>'.$donnees[$var][2].'</p>
-						<input id="likeb" type="button" value="Like" onclick="change()">';
+						<input id="likeb'.$id_event.'" type="button" value="Like" onclick="change('.$id_event.')">';
 						$var++; //Dans cette boucle nous créons notre page en la remplissant des informations récupérées précédemment 
                         if($_SESSION['id'])
                         {
@@ -114,6 +114,7 @@ session_start();
                             {
                                 echo '<input id="Confirmer'.$id_event.'" type="button" value="Confirmer" onclick="valider('.$id_event.')"></div>';
                             }
+                            else{echo '</div>';}
                         }
                         else{echo '</div>';}
 					}
