@@ -94,12 +94,12 @@
 			$reponse_v = $bdd->query('SELECT Id FROM goodies WHERE nom="'.$nom_goodie.'"');
 			$tab_goodie = $reponse_v->fetch();
 			$id_goodie = $tab_goodie[0];
-			$compteur1++;
 			$requete_v = $bdd->prepare('INSERT INTO acheter (Id, Id_Goodies, quantite) VALUES (:id, :id_goodie, :quantite)');
 			$requete_v->bindValue(':id', $id_user, PDO::PARAM_STR);
 			$requete_v->bindValue(':id_goodie', $id_goodie, PDO::PARAM_STR);
 			$requete_v->bindValue(':quantite', $vetement, PDO::PARAM_STR);
 			$requete_v->execute();	
+			$compteur1++;
 		};
 		$reponse2_v = $bdd->query('SELECT COUNT(*) FROM goodies WHERE categorie="Alcoolisme"'); //On compte le nombre de lignes/articles
 		$tabmax = $reponse2_v->fetch();

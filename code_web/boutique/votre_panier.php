@@ -60,65 +60,25 @@
 	</section>
 	<section class="main_content">
 			<section class="panier_content">
-				<div class="title_panier_content"><h1>Vêtements</h1></div>
+					<div class="title_panier_content"><h1>Votre panier</h1></div>
 					<div class="panier_display">
 						<?php 
-						$reponse = $bdd->query('SELECT nom, Id FROM goodies WHERE categorie="Vêtements"');
+						$reponse = $bdd->query('SELECT Id_Goodies FROM acheter WHERE quantite>0');
 						$donnees= $reponse->fetchall();
-						$reponse2 = $bdd->query('SELECT COUNT(*) FROM goodies WHERE categorie="Vêtements"');
+						$reponse2 = $bdd->query('SELECT COUNT(*) FROM acheter WHERE quantite>0');
 						$tabmax = $reponse2->fetch();
 						$varmax = $tabmax[0];
 						$var = 0;
 						while($var<$varmax)
 							{
-								$requete_quantite = $bdd->query('SELECT quantite FROM acheter WHERE Id_Goodies = '.$donnees[$var][1].'');
+								$requete_quantite = $bdd->query('SELECT quantite FROM acheter WHERE Id_Goodies = '.$donnees[$var][0].'');
 								$donnee_quantite = $requete_quantite->fetch();
+								$requete_nom = $bdd->query('SELECT nom FROM goodies WHERE Id ='.$donnees[$var][0].'');
+								$nom = $requete_nom->fetch();
 								echo  '<div class=panier_item>
-								<p>'.$donnees[$var][0].'</p>
+								<p>'.$nom[0].'</p>
 								<img src="../../images/facebook_logo.png">
-								<p>Vous avez commandé <span class="red">'.$donnee_quantite[0].'</span> '.$donnees[$var][0].'</p>
-								</div>';
-								$var++;
-							}?>
-					</div>
-					<div class="title_panier_content"><h1>Accessoires</h1></div>
-					<div class="panier_display">
-						<?php 
-						$reponse = $bdd->query('SELECT nom, Id FROM goodies WHERE categorie="Accessoires"');
-						$donnees= $reponse->fetchall();
-						$reponse2 = $bdd->query('SELECT COUNT(*) FROM goodies WHERE categorie="Accessoires"');
-						$tabmax = $reponse2->fetch();
-						$varmax = $tabmax[0];
-						$var = 0;
-						while($var<$varmax)
-							{
-								$requete_quantite = $bdd->query('SELECT quantite FROM acheter WHERE Id_Goodies = '.$donnees[$var][1].'');
-								$donnee_quantite = $requete_quantite->fetch();
-								echo  '<div class=panier_item>
-								<p>'.$donnees[$var][0].'</p>
-								<img src="../../images/facebook_logo.png">
-								<p>Vous avez commandé <span class="red">'.$donnee_quantite[0].'</span> '.$donnees[$var][0].'</p>
-								</div>';
-								$var++;
-							}?>
-					</div>
-					<div class="title_panier_content"><h1>Alcoolisme</h1></div>
-					<div class="panier_display">
-						<?php 
-						$reponse = $bdd->query('SELECT nom, Id FROM goodies WHERE categorie="Alcoolisme"');
-						$donnees= $reponse->fetchall();
-						$reponse2 = $bdd->query('SELECT COUNT(*) FROM goodies WHERE categorie="Alcoolisme"');
-						$tabmax = $reponse2->fetch();
-						$varmax = $tabmax[0];
-						$var = 0;
-						while($var<$varmax)
-							{
-								$requete_quantite = $bdd->query('SELECT quantite FROM acheter WHERE Id_Goodies = '.$donnees[$var][1].'');
-								$donnee_quantite = $requete_quantite->fetch();
-								echo  '<div class=panier_item>
-								<p>'.$donnees[$var][0].'</p>
-								<img src="../../images/facebook_logo.png">
-								<p>Vous avez commandé <span class="red">'.$donnee_quantite[0].'</span> '.$donnees[$var][0].'</p>
+								<p>Vous avez commandé <span class="red">'.$donnee_quantite[0].'</span> '.$nom[0].'</p>
 								</div>';
 								$var++;
 							}?>
