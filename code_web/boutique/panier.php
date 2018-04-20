@@ -41,6 +41,14 @@
 			<li class="nav_element"><a href="../boutique/votre_panier.php">Panier</a>
 			</li>
 		</ul>
+		<ul>
+			<li class="compte"><?php echo '<p> Connecté en tant que : '. $_SESSION['prenom'].'</p>'?>
+			</li>
+		</ul>
+		<ul>
+			<li class="nav_element"><a href="../inscription/sign_out.php">Deconnexion</a>
+			</li>
+		</ul>
 	</nav>
 	<section id="left_menu">
 			<a href="https://www.facebook.com/BDECesiLyon"><img src="../../images/facebook_logo.png"></a>
